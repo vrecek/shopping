@@ -1,13 +1,20 @@
 import { Aliases } from '@/util/Client'
-import {ModuleClassname} from './CommonInterfaces'
 
+// HEADER SLIDER
 
-export type MovingSliderType = ModuleClassname & {
+export type SliderInterval = {
+    setSliderInterval: React.Dispatch<React.SetStateAction<NodeJS.Timer | null>>
+}
+
+export type MovingSliderType = SliderInterval & {
     slides: SlideType[]
 }
 
-export type SlideType = {
+export type SlideType = SlideTextType & {
     image: string
+}
+
+export type SlideTextType = {
     header: string
     para: string
     buttonText: string
@@ -19,6 +26,9 @@ export type HeaderWrapperType = Aliases.Text<JSX.Element[]> & {
     wrapCname: string
 }
 
-export type SliderButtonsType = ModuleClassname & {
+export type SliderButtonsType = SliderInterval & {
     imageCount: number
+    sliderInterval: NodeJS.Timer | null
 }
+
+//////////////////////////////////////////////////

@@ -5,7 +5,8 @@
 
 // # # # # # # # # # # # # # # # # # # # COLORS # # # # # # # # # # # # # # # # # # # # #
 
-$clr-black: rgb(45, 45, 45);
+$clr-blackd: rgb(45, 45, 45);
+$clr-blackl: rgb(60, 60, 60);
 
 $clr-whitel: rgb(245, 245, 245);
 $clr-whited: rgb(221, 221, 221); 
@@ -61,8 +62,8 @@ $clr-orange: rgb(255, 136, 0);
    z-index: $zIndex;
 }
 
-@mixin BottomShadow($px) {
-   box-shadow: 0 #{$px}px #{$px}px -#{$px}px $clr-black;
+@mixin BottomShadow($px, $clr: $clr-blackd) {
+   box-shadow: 0 #{$px}px #{$px}px -#{$px}px $clr;
 }
 
 @mixin Center($val) {

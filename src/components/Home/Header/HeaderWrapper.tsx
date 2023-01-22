@@ -1,12 +1,13 @@
-import { HeaderWrapperType } from '@/interfaces/HomeInterfaces'
+import { Aliases } from '@/util/Client'
 import React from 'react'
+import styles from '../../../styles/Home/Header.module.scss'
 
 
-const HeaderWrapper = ({children, headerCname, wrapCname}: HeaderWrapperType) => {
+const HeaderWrapper = ({children}: Aliases.Text<JSX.Element[]>) => {
     return (
-        <header className={headerCname}>
+        <header className={ styles['home-header'] }>
 
-            <section className={wrapCname}>
+            <section className={ `${styles['home-header-container']} home-header-container` }>
 
                 {children}
 

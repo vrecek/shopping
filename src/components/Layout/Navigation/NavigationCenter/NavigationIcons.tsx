@@ -1,16 +1,16 @@
 import React from 'react'
-import { BsFillBasket2Fill } from 'react-icons/bs'
+import { BsBasket } from 'react-icons/bs'
 import { LinkOptions } from '../../../../interfaces/CommonInterfaces'
 import Icon from '../../../Common/Icon'
-import {FaUserAlt} from 'react-icons/fa'
+import {SlUser} from 'react-icons/sl'
 import styles from '../../../../styles/Layout/LayoutNavigation.module.scss'
 import Link from 'next/link'
 
 
 const NavigationIcons = () => {
     const links: LinkOptions[] = [
-        {text: 'Basket', url: '/', icon: <BsFillBasket2Fill />},
-        {text: 'Profile', url: '/', icon: <FaUserAlt />}
+        {text: 'Basket', url: '/', icon: <BsBasket />},
+        {text: 'Profile', url: '/', icon: <SlUser />}
     ]
 
 

@@ -1,24 +1,76 @@
 @import '../config';
 
 header.home-header {
-    height: 80vh;
+    height: 75vh;
     @include Flex(fe, fs);
     padding-top: 10px;
     padding-right: .5em;
 
     section.home-header-container {
-        width: 75%;
+        width: 70%;
         height: 100%;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
+        transition: .5s;
 
         div.moving-container {
             flex-grow: 1;
             display: flex;
+            translate: -100% 0;
+            transition: .5s;
 
             article {
                 @include FullSize;
+                flex-shrink: 0;
                 position: relative;
+                @include Flex(none, c);
+
+                section {
+                    @include Layer;
+                    padding: 1em;
+                    padding-left: 5em;
+                    width: 75%;
+
+                    button {
+                        margin-top: 2em;
+                        outline: 0;
+                        border: 0;
+                        cursor: pointer;
+                        transition: .5s;
+                        background: $clr-blued;
+                        border-radius: .2em;
+                        
+                        label {
+                            display: block;
+                            padding: .75em 2em;
+                            pointer-events: none;
+                            color: $clr-whitel;
+                        }
+
+                        &:hover {
+                            background: $clr-bluel;;
+                        }
+                    }
+
+                    p {
+                        font-family: 'Epilogue', sans-serif;
+
+                        &.slide-header {
+                            font-size: 3rem;
+                            font-weight: 700;
+                            margin-bottom: .5em;
+                            text-shadow: 0 0 5px white;
+                        }
+
+                        &.slide-description {
+                            font-size: 1.05rem;
+                            color: #000000;
+                            text-shadow: 0 0 4px white;
+                            font-weight: 600;
+                        }
+                    }
+                }
 
                 figure {
                     @include FullSize;

@@ -1,24 +1,54 @@
 import { SlideType } from '@/interfaces/HomeInterfaces'
-import styles from '../../../styles/Home/Header.module.scss'
 import HeaderWrapper from './HeaderWrapper'
 import MovingContainer from './MovingContainer'
 import SliderButtons from './SliderButtons'
-import image from '../../../images/slide1.jpg'
+import slide1 from '../../../images/slide1.jpg'
+import slide2 from '../../../images/slide2.jpg'
+import slide3 from '../../../images/slide3.jpg'
+import React from 'react'
 
 
 const HomeHeader = () => {
-    const {'home-header': hh, 'home-header-container': hhc, 'moving-container': mc, 'slider-buttons': sb} = styles
+    const [sliderInterval, setSliderInterval] = React.useState<NodeJS.Timer | null>(null)
+    
     const slides: SlideType[] = [
-        {image: image.src, buttonText: '', buttonUrl: '/', header: 'Header', para: 'Para'}
+        {
+            image: slide1.src, 
+            buttonText: 'Explore offer', 
+            buttonUrl: '/', 
+            header: 'Get our newest prestige jackets', 
+            para: 'Morbi sagittis consequat mauris sit amet suscipit. Donec commodo congue nibh sodales convallis. Nunc bibendum vitae purus blandit semper'
+        },
+        {
+            image: slide2.src, 
+            buttonText: 'Explore offer', 
+            buttonUrl: '/', 
+            header: 'Best classic outfit', 
+            para: 'Curabitur condimentum, turpis a condimentum eleifend, turpis massa commodo turpis, non mattis justo massa in nibh'
+        },
+        {
+            image: slide3.src, 
+            buttonText: 'Explore offer', 
+            buttonUrl: '/', 
+            header: 'Limited brand new shoe collection', 
+            para: 'Morbi sagittis consequat mauris sit amet suscipit. Donec commodo congue nibh sodales convallis. Nunc bibendum vitae purus blandit semper'
+        },
     ]
 
 
     return (
-        <HeaderWrapper headerCname={hh} wrapCname={hhc}>
+        <HeaderWrapper>
 
-            <MovingContainer moduleClassname={mc} slides={slides} />
+            <MovingContainer 
+                setSliderInterval={setSliderInterval} 
+                slides={slides} 
+            />
 
-            <SliderButtons moduleClassname={sb} imageCount={3} />
+            <SliderButtons 
+                setSliderInterval={setSliderInterval} 
+                sliderInterval={sliderInterval} 
+                imageCount={slides.length} 
+            />
 
         </HeaderWrapper>
     )
