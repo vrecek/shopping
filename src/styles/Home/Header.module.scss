@@ -1,0 +1,60 @@
+@import '../config';
+
+header.home-header {
+    height: 80vh;
+    @include Flex(fe, fs);
+    padding-top: 10px;
+    padding-right: .5em;
+
+    section.home-header-container {
+        width: 75%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        div.moving-container {
+            flex-grow: 1;
+            display: flex;
+
+            article {
+                @include FullSize;
+                position: relative;
+
+                figure {
+                    @include FullSize;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+                    img {
+                        @include FullSize;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+        section.slider-buttons {
+            padding: .75em;
+            @include Flex(c, c);
+
+            span {
+                @include Rectangle(20px);
+                border-radius: 50%;
+                background: $clr-greenl;
+                cursor: pointer;
+                transition: .5s;
+                margin: 0 .25em;
+
+                &.slider-button-active {
+                    background: darken($clr-greenl, 25%);
+                    pointer-events: none;
+                }
+
+                &:hover {
+                    scale: 1.1;
+                }
+            }
+        }
+    }
+}

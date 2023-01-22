@@ -1,0 +1,211 @@
+@import '../config';
+
+nav.layout-navigation {
+
+    section {
+
+        &.navigation-strap {
+            @include Flex(sb, c);
+            padding: .75em 1em;
+            background: $clr-greend;
+    
+            p {
+                color: $clr-whitel;
+                font-weight: 500;
+                font-size: .9rem;
+            }
+        }
+
+        &.navigation-center {
+            @include Flex(sb, c);
+            padding: 1em 1.5em;
+
+            a.logo {
+                letter-spacing: 3px;
+                text-decoration: none;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $clr-black;
+                font-size: 1.5rem;
+                font-family: 'Epilogue', sans-serif;
+                
+                span {
+                    font-size: inherit;
+                    font-weight: inherit;
+                    color: $clr-greend;
+                }
+            }
+
+            section.searchbar {
+                @include Flex(sb);
+                width: 50%;
+
+                input {
+                    flex-grow: 1;
+                    padding: 0 .75em;
+                    outline: 0;
+                    font-size: .95rem;
+                    border: 2px solid $clr-greenl;
+                    font-family: 'Epilogue', sans-serif;
+                    border-right: 0;
+                    border-radius: .15em 0 0 .15em;
+                    background: none;
+                }
+
+                span {
+                    @include Rectangle(55px);
+                    background: $clr-greenl;
+                    @include Flex(c, c);
+
+                    svg {
+                        color: $clr-whitel;
+                        @include FullSize(50%);
+                    }
+                }
+            }
+
+            ul.links {
+                list-style: none;
+                display: flex;
+
+                li {
+                    margin-left: 1em;
+                    position: relative;
+
+                    &::before {
+                        content: attr(data-type);
+                        position: absolute;
+                        right: 0;
+                        opacity: 0;
+                        top: 50%;
+                        translate: 0 -50%;
+                        transition: .5s;
+                        pointer-events: none;
+                        background: $clr-greend;
+                        color: $clr-whitel;
+                        font-size: .85rem;
+                        font-weight: 600;
+                        padding: 0 .25em;
+                        border-radius: .15em;
+                        text-transform: uppercase;
+                    }
+
+                    a {
+                        display: flex;
+                        justify-content: flex-start;
+                        text-decoration: none;
+
+                        p {
+                            translate: 0 -50%;
+                            height: max-content;
+                            color: $clr-greend;
+                            font-weight: 700;
+                            font-size: 1.1rem;
+                            padding: 0 .25em;
+                        }
+
+                        span {
+                            color: $clr-black;
+                            transition: .5s;
+                            @include Rectangle(35px);
+                        }
+                    }
+
+                    &:hover {
+                        &::before {
+                            right: 110%;
+                            opacity: 1;
+                        }
+
+                        a span {
+                            scale: .9;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.navigation-bottom {
+            @include Flex(sb, c);
+            @include BottomShadow(5);
+            padding: .75em;
+            padding-bottom: 0;
+            position: relative;
+
+            section.navigation-menu {
+                aside.menu {
+                    position: absolute;
+                    left: .5em;
+                    border-radius: 0 0 1em 1em;
+                    top: calc(100% + 10px);
+                    z-index: 2;
+                    width: 20%;
+                    background: $clr-whitel;
+                    transition: .5s;
+
+                    ul {
+                        list-style: none;
+
+                        li {
+                            a {
+                                @include Flex(sb, c);
+                                padding: 1em;
+                                color: $clr-black;
+                                border-left: 0px solid $clr-greend;
+                                text-decoration: none;
+                                font-weight: 300;
+                                letter-spacing: 1px;
+                                transition: .3s;
+                                font-family: 'Epilogue', sans-serif;
+
+                                span {
+                                    @include Rectangle(40px);
+                                    color: $clr-greenl;
+                                }
+
+                                &:hover {
+                                    border-width: 6px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                p.toggler {
+                    cursor: pointer;
+                    @include Flex(none, c);
+                    font-family: 'Epilogue', sans-serif;
+                    font-size: 1.1rem;
+                    letter-spacing: -1px;
+
+                    span {
+                        @include Rectangle(35px);
+                        margin-left: .5em;
+                        transition: .5s;
+                    }
+                }
+            }
+
+            ul.nav-links {
+                list-style: none;
+                display: flex;
+
+                li {
+                    a {
+                        padding: 1em;
+                        display: block;
+                        font-family: 'Epilogue', sans-serif;
+                        color: $clr-black;
+                        text-decoration: none;
+                        transition: .5s;
+
+                        &:hover {
+                            color: $clr-greenl;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
