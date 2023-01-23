@@ -1,4 +1,5 @@
 import HomeHeader from '@/components/Home/Header/HomeHeader'
+import HomeProducts from '@/components/Home/HomeProducts/HomeProducts'
 import LayoutWrap from '@/components/Layout/LayoutWrap'
 
 
@@ -9,6 +10,7 @@ const Home = () => {
             <main>
 
                 <HomeHeader />
+                <HomeProducts />
 
             </main>
 

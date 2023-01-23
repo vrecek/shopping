@@ -7,3 +7,9 @@ export type LinkOptions = {
 export type ModuleClassname = {
     moduleClassname: string
 }
+
+export type ProductRatingType = {
+    rate: number
+    activeClass: string
+    totalRates: number
+}

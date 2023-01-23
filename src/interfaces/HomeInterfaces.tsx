@@ -32,3 +32,12 @@ export type SliderButtonsType = SliderInterval & {
 }
 
 //////////////////////////////////////////////////
+
+export type ProductItemType = {
+    id: string
+    image: string
+    name: string
+    rate: number
+    price: number
+    totalRates: number
+}
