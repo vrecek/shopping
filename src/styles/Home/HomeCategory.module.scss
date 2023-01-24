@@ -1,0 +1,82 @@
+@import '../config';
+
+section.home-category {
+    padding: 2em;
+    @include Flex(c, c);
+
+    article {
+        margin: 0 .5em;
+        position: relative;
+        height: 60vh;
+        padding: 2em;
+        color: $clr-whitel;
+
+        figure {
+            position: absolute;
+            left: 0;
+            top: 0;
+            @include FullSize;
+
+            img {
+                @include FullSize;
+                object-fit: cover;
+            }
+        }
+
+        section {
+            @include Layer;
+
+            p {
+                text-shadow: 0 0 4px $clr-blackd;
+
+                &.header {
+                    font-weight: 700;
+                    font-size: 2rem;
+                    font-family: 'Epilogue', sans-serif;
+                    border-left: 5px solid $clr-bluel;
+                    padding: .25em .35em;
+                    letter-spacing: 1px;
+                }
+
+                &.desc {
+                    color: $clr-whited;
+                    font-weight: 500;
+                    margin: 1em 0 2em 0;
+                }
+            }
+
+            button {
+                background: $clr-blued;
+                cursor: pointer;
+                transition: .5s;
+                outline: 0;
+                border: 0;
+                border-radius: .25em;
+                
+                label {
+                    display: block;
+                    color: $clr-whitel;
+                    pointer-events: none;
+                    padding: .75em 1.5em;
+                }
+
+                &:hover {
+                    background: darken($clr-blued, 10%);
+                }
+            }
+        }
+
+        &.item-small {
+            width: 35%;
+        }
+
+        &.item-big {
+            width: 60%;
+            @include Flex(fs, fe);
+
+            p.desc {
+                width: 80%;
+            }
+        }
+    }
+}
