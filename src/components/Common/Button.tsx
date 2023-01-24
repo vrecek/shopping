@@ -5,12 +5,14 @@ type ButtonOptions = {
     additional?: JSX.Element | string | number
     cname?: string
     action?: React.MouseEventHandler
+    enter?: React.MouseEventHandler
+    leave?: React.MouseEventHandler
 }
 
 
-const Button = ({text, additional, cname, action}: ButtonOptions) => {
+const Button = ({text, additional, cname, action, enter, leave}: ButtonOptions) => {
     return (
-        <button onClick={action} className={cname ?? ''}>
+        <button onMouseLeave={leave} onMouseEnter={enter} onClick={action} className={cname ?? ''}>
 
             <label>
                 {text}

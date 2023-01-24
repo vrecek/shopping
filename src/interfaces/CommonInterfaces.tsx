@@ -13,3 +13,5 @@ export type ProductRatingType = {
     activeClass: string
     totalRates: number
 }
+
+export type RedirectType = (url: string) => void

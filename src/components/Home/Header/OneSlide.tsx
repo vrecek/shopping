@@ -1,4 +1,3 @@
-import Button from '@/components/Common/Button'
 import Image from '@/components/Common/Image'
 import { SlideType } from '@/interfaces/HomeInterfaces'
 import React from 'react'

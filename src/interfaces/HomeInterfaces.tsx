@@ -53,3 +53,17 @@ export type CategoryItemType = {
     image: string
     category: string
 }
+
+//////////////////////////////////////////////////
+
+// HOME INFORMATIONS
+
+export type InformationItemType = {
+    icon: JSX.Element
+    header: string
+    desc: string
+    button?: {
+        url: string
+        str: string
+    }
+}
