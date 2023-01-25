@@ -1,4 +1,5 @@
 import { Aliases } from '@/util/Client'
+import { ProductType } from './ProductType'
 
 // HEADER SLIDER
 
@@ -66,4 +67,25 @@ export type InformationItemType = {
         url: string
         str: string
     }
+}
+
+//////////////////////////////////////////////////
+
+// TILE PRODUCTS
+
+export type TileProductType = {
+    image: string
+    name: string
+}
+
+export type TileContainerType = {
+    product: TileProductType
+    cname: string
+}
+
+export type RowProducts = [TileProductType, TileProductType, TileProductType]
+
+export type RowType = {
+    cname: string
+    products: RowProducts
 }

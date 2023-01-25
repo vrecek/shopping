@@ -2,6 +2,7 @@ import HomeHeader from '@/components/Home/Header/HomeHeader'
 import HomeCategory from '@/components/Home/HomeCategory/HomeCategory'
 import HomeInformations from '@/components/Home/HomeInformations/HomeInformations'
 import HomeProducts from '@/components/Home/HomeProducts/HomeProducts'
+import HomeProductsTiles from '@/components/Home/HomeProductsTiles/HomeProductsTiles'
 import LayoutWrap from '@/components/Layout/LayoutWrap'
 
 
@@ -22,6 +23,10 @@ const Home = () => {
                 <HomeInformations />
 
                 <HomeProducts />
+
+                <HomeProductsTiles />
+
+                <HomeCategory />
 
             </main>
 

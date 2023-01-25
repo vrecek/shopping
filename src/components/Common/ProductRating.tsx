@@ -3,9 +3,9 @@ import React from 'react'
 import {AiOutlineStar} from 'react-icons/ai'
 
 
-const ProductRating = ({rate, totalRates, activeClass}: ProductRatingType) => {
+const ProductRating = ({rate, totalRates, activeClass, containerClass}: ProductRatingType) => {
     return (
-        <section>
+        <section className={containerClass}>
 
             {
                 [...Array(5)].map((x, i) => (
@@ -19,7 +19,7 @@ const ProductRating = ({rate, totalRates, activeClass}: ProductRatingType) => {
                 ))
             }
 
-            ({totalRates})
+            <p>({totalRates})</p>
 
         </section>
     )

@@ -1,0 +1,171 @@
+@import '../config';
+
+section.home-products-tiles {
+    padding: 2em;
+
+    section.row {
+        margin: 1em 0;
+        @include Flex(c, c);
+        align-items: stretch;
+
+        &.reversed {
+            flex-direction: row-reverse;
+
+            div { margin-right: .8em; }
+        }
+
+        &:not(.reversed) div { margin-left: .8em; }
+
+        div {
+            width: 30%;
+        }
+
+        article {
+            padding: 2em;
+            position: relative;
+            @include Flex(none, none, c);
+
+            section.text-container {
+                @include Layer;
+                flex-grow: 1;
+
+                div {
+                    width: 100%;
+                    margin: 0;
+                }
+
+                p {
+                    &.name {
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                        font-family: 'Epilogue', sans-serif;
+                        text-shadow: 0 0 4px $clr-whited;
+                    }
+    
+                    &.company {
+                        font-size: 1rem;
+                        font-family: 'Epilogue', sans-serif;
+                        color: $clr-blackl;
+                        margin-bottom: .1em;
+                    }
+
+                    &.price {
+                        font-weight: 700;
+                        font-size: 1.75rem;
+                        @include Flex(none, fs);
+                        text-shadow: 0 0 3px $clr-whitel;
+    
+                        &::after {
+                            content: '$';
+                            font-size: 1rem;
+                            font-weight: inherit;
+                            margin-left: .2em;
+                        }
+                    }
+                }
+
+                section.rating {
+                    display: flex;
+                    width: max-content;
+
+                    p { display: none;}
+
+                    span {
+                        @include Rectangle(27px);
+
+                        &.active { color: $clr-greenl; }
+
+                        &:not(.active) {
+                            filter: drop-shadow(0 0 1px $clr-whitel)
+                        }
+                    }
+                }
+
+                button {
+                    outline: 0;
+                    border: 0;
+                    background: $clr-blued;
+                    border-radius: .2em;
+                    cursor: pointer;
+                    transition: .5s;
+                    width: max-content;
+                    margin-top: 1em;
+    
+                    label {
+                        pointer-events: none;
+                        color: $clr-whitel;
+                        padding: .75em 1.5em;
+                        display: block;
+                    }
+    
+                    &:hover {
+                        background: darken($clr-blued, 10%);
+                    }
+                }
+            }
+
+            figure {
+                position: absolute;
+                left: 0;
+                top: 0;
+                @include FullSize;
+                @include Flex(c, c);
+                opacity: .3;
+                transition: .5s;
+
+                img {
+                    object-fit: cover;
+                    height: 80%;
+                    max-width: 100%;
+                }
+            }
+
+            &.small {
+                height: calc(50% - .4em);
+
+                section.text-container {
+                    @include Flex(sb, none, c);
+
+                    button label {
+                        font-size: .8rem;
+                    }
+                }
+
+                &:first-child { 
+                    margin-bottom: .75em;
+                    border-bottom: 4px solid $clr-greenl; 
+                }
+            }
+
+            &.big {
+                width: 50%;
+                aspect-ratio: 1.25;
+                border-bottom: 4px solid $clr-greenl;
+
+                section.text-container {
+                    p {
+                        &.name {
+                            font-size: 2.75rem;
+                        }
+
+                        &.company {
+                            font-size: 1.25rem;
+                        }
+
+                        &.price {
+                            font-size: 2.25rem;
+                        }
+                    }
+
+                    section.rating {
+                        margin: .75em 0 1.5em 0;
+
+                        span {
+                            @include Rectangle(40px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
