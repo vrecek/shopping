@@ -20,6 +20,22 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: $clr-blackd;
 
+    span.layout-arrow {
+        position: fixed;
+        @include Rectangle(30px);
+        right: 6px;
+        bottom: 6px;
+        cursor: pointer;
+        background: $clr-greenl;
+        color: $clr-whitel;
+        @include Flex(c, c);
+        opacity: 0;
+        transition: .5s;
+        pointer-events: none;
+
+        svg { @include FullSize(80%) }
+    }
+
     svg {
         @include FullSize;
     }

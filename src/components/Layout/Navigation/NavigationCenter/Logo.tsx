@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
-import styles from '../../../../styles/Layout/LayoutNavigation.module.scss'
 
 
-const Logo = () => {
+const Logo = ({cname}: {cname: string}) => {
     return (
-        <Link href='/' className={ styles['logo'] }>
+        <Link href='/' className={cname}>
             Sho<span>pp</span>ing
         </Link>
     )

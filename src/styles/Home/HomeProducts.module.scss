@@ -48,11 +48,13 @@ section.home-products {
                     span {
                         @include Rectangle(25px);
 
-                        &:last-child { margin-right: .25em; }
-                        
                         &:not(.active) {
                             color: $clr-blackl;
                         }
+                    }
+
+                    p {
+                        margin-left: .5em;
                     }
                 }
 

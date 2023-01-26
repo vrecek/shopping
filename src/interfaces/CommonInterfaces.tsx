@@ -2,6 +2,7 @@ export type LinkOptions = {
     url: string
     text: string
     icon?: JSX.Element
+    cname?: string
 }
 
 export type ModuleClassname = {

@@ -1,7 +1,6 @@
 @import '../config';
 
 nav.layout-navigation {
-
     section {
 
         &.navigation-strap {
@@ -19,6 +18,11 @@ nav.layout-navigation {
         &.navigation-center {
             @include Flex(sb, c);
             padding: 1em 1.5em;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background: $clr-whitel;
+            z-index: 999;
 
             a.logo {
                 letter-spacing: 3px;
