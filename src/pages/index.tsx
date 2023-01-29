@@ -3,6 +3,7 @@ import HomeCategory from '@/components/Home/HomeCategory/HomeCategory'
 import HomeInformations from '@/components/Home/HomeInformations/HomeInformations'
 import HomeProducts from '@/components/Home/HomeProducts/HomeProducts'
 import HomeProductsTiles from '@/components/Home/HomeProductsTiles/HomeProductsTiles'
+import HomeRandom from '@/components/Home/HomeRandom/HomeRandom'
 import LayoutWrap from '@/components/Layout/LayoutWrap'
 
 
@@ -23,6 +24,8 @@ const Home = () => {
                 <HomeInformations />
 
                 <HomeProducts />
+
+                <HomeRandom />
 
                 <HomeProductsTiles />
 

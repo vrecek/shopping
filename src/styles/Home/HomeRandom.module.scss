@@ -1,0 +1,229 @@
+@import '../config';
+
+section.home-random {
+    height: 100vh;
+
+    section.container-wrap {
+        @include Flex(sa, c);
+        translate: 0 -50%;
+
+        article {
+            width: 40%;
+            background: $clr-whitel;
+            box-shadow: 0 0 4px $clr-blackd;
+            border-radius: .25em;
+            padding: 2em;
+
+            &.right-product {
+                figure {
+                    width: 50%;
+                    margin: 0 auto;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                section.product-in-stock {
+                    margin: 1.5em 0;
+                    border-left: 4px solid $clr-greenl;
+                    padding: .75em;
+                    padding-right: 0;
+
+                    section {
+                        background: linear-gradient(90deg, rgba(233,0,0,1) 0%, rgba(246,217,5,1) 50%, rgba(0,255,36,1) 100%);
+                        width: 50%;
+                        padding: .5em;
+                        position: relative;
+
+                        span {
+                            position: absolute;
+                            top: 50%;
+                            height: 150%;
+                            width: 10px;
+                            background: $clr-whitel;
+                            translate: 0 -50%;
+
+                            &::before {
+                                content: attr(data-products);
+                                position: absolute;
+                                left: 50%;
+                                translate: -50% 0;
+                                top: 100%;
+                                font-weight: 700;
+                                font-size: .9rem;
+                                color: $clr-blackl;
+                                opacity: .7;
+                            }
+                        }
+                    }
+
+                    p {
+                        font-weight: 600;
+                        margin-bottom: .5em;
+                        @include Flex(none, c);
+
+                        span {
+                            @include Rectangle(25px);
+                            margin-right: .25em;
+                        }
+
+                        &.true {
+                            color: $clr-greend;
+                        }
+                    }
+                }
+
+                section.product-rating {
+                    @include Flex(none, c);
+                    margin-top: .75em;
+
+                    span.active,
+                    p {
+                        color: $clr-greenl;
+                    }
+
+                    span {
+                        @include Rectangle(30px);
+                    }
+
+                    p {
+                        margin-left: .25em;
+                    }
+                }
+
+                button {
+                    background: $clr-blued;
+                    outline: 0;
+                    border: 0;
+                    cursor: pointer;
+                    transition: .5s;
+                    border-radius: .2em;
+                    margin-top: 1.5em;
+                    
+                    label {
+                        display: block;
+                        padding: .75em 2em;
+                        color: $clr-whitel;
+                        pointer-events: none;
+                    }
+
+                    &:hover {
+                        background: darken($clr-blued, 10%);
+                    }
+                }
+
+                p {
+                    &.name {
+                        font-weight: 600;
+                        font-size: 1.75rem;
+                    }
+
+                    &.price {
+                        font-size: 2rem;
+                        @include Flex(none, fs);
+                        font-weight: 500;
+
+                        &::after {
+                            content: '$';
+                            margin-left: .1em;
+                            font-size: 1.25rem;
+                        }
+                    }
+
+                    &.desc {
+                        font-family: 'Epilogue', sans-serif;
+                        font-size: .95rem;
+                        color: $clr-blackl;
+                        margin: .75em 0;
+                    }
+                }
+            }
+
+            &.left-informations {
+                a.more {
+                    @include Flex(none, c);
+                    margin: 0 0 0 auto;
+                    width: max-content;
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: $clr-blackl;
+                    margin-top: 1em;
+                    font-weight: 500;
+
+                    span {
+                        margin-left: .25em;
+                        transition: .5s;
+                        @include Rectangle(30px);
+                    }
+
+                    &:hover span {
+                        translate: 50% 0;
+                    }
+                }
+
+                p.header-category {
+                    font-weight: 500;
+                    font-size: 1.75rem;
+                    font-family: 'Epilogue', sans-serif;
+                    margin-bottom: 1.5em;
+                    color: $clr-blackl;
+                }
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        display: flex;
+                        &:not(:last-child) { margin-bottom: 1.25em; }
+
+                        span.parent-icon {
+                            @include Rectangle(60px);
+                            margin-right: 1em;
+                            border: 2px solid $clr-greenl;
+
+                            span {
+                                @include FullSize(80%);
+                                background: $clr-greenl;
+
+                                svg {
+                                    color: $clr-whitel;
+                                    @include FullSize(70%);
+                                }
+                            }
+                        }
+
+                        span.parent-icon,
+                        span.parent-icon span {
+                            @include Flex(c, c);
+                            border-radius: .2em;
+                        }
+
+                        div {
+                            p {
+                                &.type {
+                                    font-weight: 700;
+                                    margin-bottom: .5em;
+                                }
+
+                                &.value {
+                                    font-family: 'Epilogue', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    figure.bg-image {
+        width: 100%;
+        height: 50vh;
+
+        img {
+            @include FullSize;
+            object-fit: cover;
+        }
+    }
+}

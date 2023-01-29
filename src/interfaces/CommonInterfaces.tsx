@@ -16,4 +16,10 @@ export type ProductRatingType = {
     containerClass?: string
 }
 
+export type ProductAvailableType = {
+    productsNum: number
+    paraClass: string
+    containerClass?: string
+}
+
 export type RedirectType = (url: string) => void

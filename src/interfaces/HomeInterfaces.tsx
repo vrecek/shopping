@@ -89,3 +89,18 @@ export type RowType = {
     cname: string
     products: RowProducts
 }
+
+//////////////////////////////////////////////////
+
+// RANDOM SECTION
+
+export type RandomLeftElementType = {
+    icon: JSX.Element
+    header: string
+    value: number | string
+}
+
+export type LeftInformationsType = {
+    informations: RandomLeftElementType[]
+    category: string
+}
