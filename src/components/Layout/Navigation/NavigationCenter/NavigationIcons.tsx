@@ -5,12 +5,14 @@ import Icon from '../../../Common/Icon'
 import {SlUser} from 'react-icons/sl'
 import styles from '../../../../styles/Layout/LayoutNavigation.module.scss'
 import Link from 'next/link'
+import { AiOutlineLogin } from 'react-icons/ai'
 
 
 const NavigationIcons = () => {
     const links: LinkOptions[] = [
         {text: 'Basket', url: '/', icon: <BsBasket />},
-        {text: 'Profile', url: '/', icon: <SlUser />}
+        {text: 'Sign in', url: '/signin', icon: <AiOutlineLogin />},
+        // {text: 'Profile', url: '/', icon: <SlUser />}
     ]
 
 

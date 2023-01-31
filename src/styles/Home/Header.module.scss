@@ -60,13 +60,14 @@ header.home-header {
                             font-size: 3rem;
                             font-weight: 700;
                             margin-bottom: .5em;
-                            text-shadow: 0 0 5px white;
+                            text-shadow: 0 0 2px white;
                         }
 
                         &.slide-description {
                             font-size: 1.05rem;
                             color: $clr-greenl;
-                            font-weight: 600;
+                            font-weight: 500;
+                            text-shadow: 0 0 1px $clr-whitel;
                         }
                     }
                 }

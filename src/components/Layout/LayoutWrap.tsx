@@ -8,10 +8,11 @@ import LayoutNavigation from './Navigation/LayoutNavigation'
 
 const LayoutWrap = ({children}: Aliases.Text<JSX.Element>) => {
     React.useEffect(() => {
-        const bodyElem: Element[] = [...document.body.children]
+        const nav: HTMLElement = document.querySelector('#layout-navigation')?.children[1] as HTMLElement,
+              arrow: HTMLElement = document.querySelector('.layout-arrow') as HTMLElement
 
-        const nav: HTMLElement = bodyElem[0].children[0].children[1] as HTMLElement,
-              arrow: HTMLElement = bodyElem[0].children[bodyElem.length - 1] as HTMLElement
+
+        if (!nav || !arrow) return
 
 
         let scrolled: boolean = false

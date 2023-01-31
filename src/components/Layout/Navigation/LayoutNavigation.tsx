@@ -6,11 +6,11 @@ import styles from '../../../styles/Layout/LayoutNavigation.module.scss'
 
 
 const LayoutNavigation = () => {
-    const { 'navigation-strap': ns, 'navigation-center': nc, 'navigation-bottom': nb } = styles
+    const { 'navigation-strap': ns, 'navigation-center': nc, 'navigation-bottom': nb, 'layout-navigation': ln } = styles
 
 
     return (
-        <nav className={ styles['layout-navigation'] }>
+        <nav id='layout-navigation' className={ln}>
 
             <NavigationStrap moduleClassname={ns} />
             <NavigationCenter moduleClassname={nc} />

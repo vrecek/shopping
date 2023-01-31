@@ -24,56 +24,6 @@ section.home-random {
                     }
                 }
 
-                section.product-in-stock {
-                    margin: 1.5em 0;
-                    border-left: 4px solid $clr-greenl;
-                    padding: .75em;
-                    padding-right: 0;
-
-                    section {
-                        background: linear-gradient(90deg, rgba(233,0,0,1) 0%, rgba(246,217,5,1) 50%, rgba(0,255,36,1) 100%);
-                        width: 50%;
-                        padding: .5em;
-                        position: relative;
-
-                        span {
-                            position: absolute;
-                            top: 50%;
-                            height: 150%;
-                            width: 10px;
-                            background: $clr-whitel;
-                            translate: 0 -50%;
-
-                            &::before {
-                                content: attr(data-products);
-                                position: absolute;
-                                left: 50%;
-                                translate: -50% 0;
-                                top: 100%;
-                                font-weight: 700;
-                                font-size: .9rem;
-                                color: $clr-blackl;
-                                opacity: .7;
-                            }
-                        }
-                    }
-
-                    p {
-                        font-weight: 600;
-                        margin-bottom: .5em;
-                        @include Flex(none, c);
-
-                        span {
-                            @include Rectangle(25px);
-                            margin-right: .25em;
-                        }
-
-                        &.true {
-                            color: $clr-greend;
-                        }
-                    }
-                }
-
                 section.product-rating {
                     @include Flex(none, c);
                     margin-top: .75em;

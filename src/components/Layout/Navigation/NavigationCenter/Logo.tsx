@@ -1,10 +1,11 @@
+import { ModuleClassname } from '@/interfaces/CommonInterfaces'
 import Link from 'next/link'
 import React from 'react'
 
 
-const Logo = ({cname}: {cname: string}) => {
+const Logo = ({moduleClassname}: ModuleClassname) => {
     return (
-        <Link href='/' className={cname}>
+        <Link href='/' className={moduleClassname}>
             Sho<span>pp</span>ing
         </Link>
     )

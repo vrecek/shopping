@@ -20,6 +20,69 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: $clr-blackd;
 
+    section.product-in-stock {
+        margin: 1.5em 0;
+        border-left: 4px solid $clr-greenl;
+        padding: .75em;
+        padding-right: 0;
+
+        section {
+            background: linear-gradient(90deg, rgba(233,0,0,1) 0%, rgba(246,217,5,1) 50%, rgba(0,255,36,1) 100%);
+            width: 50%;
+            padding: .5em;
+            position: relative;
+
+            span {
+                position: absolute;
+                top: 50%;
+                height: 150%;
+                width: 10px;
+                background: $clr-whitel;
+                translate: 0 -50%;
+
+                &::before {
+                    content: attr(data-products);
+                    position: absolute;
+                    left: 50%;
+                    translate: -50% 0;
+                    top: 100%;
+                    font-weight: 700;
+                    font-size: .9rem;
+                    color: $clr-blackl;
+                    opacity: .7;
+                }
+            }
+        }
+
+        div {
+            margin-bottom: .5em;
+            @include Flex(none, c);
+            
+            p {
+                font-size: .95rem;
+                font-weight: 600;
+            }
+
+            span {
+                @include Rectangle(25px);
+                margin-right: .25em;
+            }
+
+            &.green {
+                color: $clr-greend;
+            }
+            &.yellow {
+                color: rgb(91, 151, 0);
+            }
+            &.orange {
+                color: orangered;
+            }
+            &.red {
+                color: $clr-red;
+            }
+        }
+    }
+
     span.layout-arrow {
         position: fixed;
         @include Rectangle(30px);

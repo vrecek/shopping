@@ -79,6 +79,7 @@ nav.layout-navigation {
                     &::before {
                         content: attr(data-type);
                         position: absolute;
+                        width: max-content;
                         right: 0;
                         opacity: 0;
                         top: 50%;

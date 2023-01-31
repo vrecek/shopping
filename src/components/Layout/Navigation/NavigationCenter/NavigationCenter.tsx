@@ -10,7 +10,7 @@ const NavigationCenter = ({moduleClassname}: ModuleClassname) => {
     return (
         <section className={moduleClassname}>
 
-            <Logo cname={ styles['logo'] } />
+            <Logo moduleClassname={ styles['logo'] } />
             <Searchbar />
             <NavigationIcons />
 

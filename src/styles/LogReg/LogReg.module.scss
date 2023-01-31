@@ -1,0 +1,118 @@
+@import '../config';
+
+main.sign-in,
+main.register {
+    height: 100vh;
+    @include Flex(c, c);
+
+    form {
+        border-radius: .25em;
+        padding: 3em;
+        padding-bottom: 1.75em;
+        width: 35%;
+        min-width: 480px;
+        background: rgb(232, 232, 232);
+        @include Flex(sb, c, c);
+
+        div.logreg-div {
+            &:not(:last-of-type) { margin-bottom: 1em; }
+            width: 100%;
+
+            label {
+                display: block;
+                font-size: .8rem;
+                font-weight: 500;
+            }
+
+            input {
+                width: 100%;
+                padding: .75em;
+                outline: 0;
+                border: 1px solid $clr-greyd;
+                border-radius: .25em;
+                font-size: .9rem;
+                background: $clr-whitel;
+            }
+        }
+
+        a.logo {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $clr-blackl;
+            text-decoration: none;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 1em;
+            font-family: 'Epilogue', sans-serif;
+
+            span {
+                font-weight: 600;
+                font-size: inherit;
+                color: $clr-greenl;
+            }
+        }
+
+        a:not(.logo) {
+            font-size: .85rem;
+            text-decoration: none;
+            color: $clr-greend;
+            font-weight: 500;
+            transition: .5s;
+
+            &:hover {
+                color: darken($clr-greend, 10%);
+            }
+        }
+
+        button {
+            width: 100%;
+            background: $clr-greenl;
+            outline: 0;
+            border: 0;
+            border-radius: .2em;
+            cursor: pointer;
+            transition: .5s;
+            margin: 1.5em 0;
+
+            label {
+                color: $clr-whitel;
+                padding: .75em 0;
+                display: block;
+                pointer-events: none;
+            }
+
+            &:hover {
+                background: $clr-greend;
+            }
+        }
+    }
+
+    &.register {
+        div.recaptcha-container {
+            width: 100%;
+        }
+    }
+
+    &.sign-in {        
+        section {
+            @include Flex(sb, c);
+            width: 100%;
+
+            div {
+                label,
+                input {
+                    cursor: pointer;
+                }
+
+                label {
+                    font-size: .85rem;
+                    font-weight: 500;
+                    margin-right: .25em;
+                }
+
+                input {
+                }
+            }
+        }
+    }
+}

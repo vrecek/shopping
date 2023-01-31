@@ -23,9 +23,7 @@ const RightProduct = () => {
             <p className={ styles['desc'] }>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum nemo dolorem ipsa delectus, libero illum molestiae eos tempore repudiandae a qui eius odit</p>
 
             <ProductAvailable 
-                paraClass={ styles['true'] }
-                productsNum={64} 
-                containerClass={ styles['product-in-stock'] } 
+                productsNum={32} 
             />
 
             <p className={ styles['price'] }>999</p>

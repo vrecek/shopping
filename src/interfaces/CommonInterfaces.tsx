@@ -18,7 +18,6 @@ export type ProductRatingType = {
 
 export type ProductAvailableType = {
     productsNum: number
-    paraClass: string
     containerClass?: string
 }
 
