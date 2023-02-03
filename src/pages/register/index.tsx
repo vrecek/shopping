@@ -39,7 +39,7 @@ const Register = () => {
                         />
                     </div>
 
-                    <Button text='Create account' />
+                    <Button>Create account</Button>
                     <AccountReminder type='gotAccount' />
 
                 </form>

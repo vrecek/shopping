@@ -1,4 +1,4 @@
-import { Aliases } from '@/util/Client'
+import { LayoutWrapType } from '@/interfaces/CommonInterfaces'
 import React from 'react'
 import HeadData from '../HeadData'
 import LayoutFooter from './Footer/LayoutFooter'
@@ -6,9 +6,9 @@ import LayoutArrow from './LayoutArrow'
 import LayoutNavigation from './Navigation/LayoutNavigation'
 
 
-const LayoutWrap = ({children}: Aliases.Text<JSX.Element>) => {
+const LayoutWrap = ({children, title, onlyCenter}: LayoutWrapType) => {
     React.useEffect(() => {
-        const nav: HTMLElement = document.querySelector('#layout-navigation')?.children[1] as HTMLElement,
+        const nav: HTMLElement = document.querySelector('#layout-navigation-center') as HTMLElement,
               arrow: HTMLElement = document.querySelector('.layout-arrow') as HTMLElement
 
 
@@ -39,15 +39,17 @@ const LayoutWrap = ({children}: Aliases.Text<JSX.Element>) => {
 
 
     return (
-        <HeadData>
+        <HeadData title={title}>
 
-            <LayoutNavigation />
+            <>
+                <LayoutNavigation onlyCenter={onlyCenter} />
 
-            {children}
+                {children}
 
-            <LayoutFooter />
+                <LayoutFooter />
 
-            <LayoutArrow />
+                <LayoutArrow />
+            </>
 
         </HeadData>
     )

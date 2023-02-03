@@ -55,10 +55,11 @@ const TileProduct = ({cname, product}: TileContainerType) => {
                 <p className={ styles['price'] }>999</p>
 
                 <Button 
-                    text='View'
                     enter={btnHover} 
                     leave={btnHoverOut}
-                />
+                >
+                    View
+                </Button>
 
             </section>
 

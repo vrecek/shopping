@@ -1,0 +1,139 @@
+@import '../config';
+
+main.user-basket {
+    padding: 3em 2em;
+    min-height: 100vh;
+    @include Flex(sb, fs);
+
+    h2,
+    h1 {
+        font-family: 'Epilogue', sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding-bottom: .15em;
+        margin-bottom: .75em;
+        border-bottom: 2px solid $clr-blackd;
+    }
+
+    h1 { margin-bottom: 2em; }
+
+    section.basket-products {
+        width: 60%;
+
+        article {
+            @include Flex(sb, c);
+            margin-bottom: 3em;
+
+            p {
+                &.name {
+                    width: 25%;
+                    font-size: 1.1rem;
+                    color: rgb(70, 70, 70);
+                }
+
+                &.price {
+                    width: 10%;
+                    text-align: center;
+                    font-weight: 500;
+                    font-size: 1.25rem;
+                }
+            }
+
+            section {
+                width: 7%;
+                @include Flex(c, c);
+                aspect-ratio: 1;
+                border: 1px solid $clr-blackl;
+                border-radius: .25em;
+                position: relative;
+
+                span {
+                    position: absolute;
+                    top: 50%;
+                    @include Rectangle(25px);
+                    cursor: pointer;
+                    background: $clr-whitel;
+                    transition: .5s;
+
+                    &:first-of-type {
+                        left: 0;
+                        translate: -50% -50%;
+                    }
+
+                    &:last-of-type {
+                        right: 0;
+                        translate: 50% -50%;
+                    }
+
+                    &:hover {
+                        scale: 1.1;
+                    }
+                }
+
+                p {
+                    font-weight: 500;
+                }
+            }
+
+            figure {
+                width: 12%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    aside.basket-summary {
+        width: 30%;
+        position: sticky;
+        top: 150px;
+
+        div {
+            @include Flex(sb, c);
+            padding: 1em 0;
+
+            p {
+                &:first-child {
+                    font-weight: 600;
+                    color: rgba(80, 80, 80)
+                }
+
+                &:last-child {
+                    color: $clr-greenl;
+                    font-weight: 500;
+                }
+            }
+
+            &.total {
+                p:last-child {
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        button {
+            width: 100%;
+            outline: 0;
+            border: 0;
+            border-radius: .25em;
+            background: $clr-greend;
+            margin-top: 1.25em;
+            cursor: pointer;
+            transition: .5s;
+
+            label {
+                display: block;
+                pointer-events: none;
+                color: $clr-whitel;
+                padding: 1em 0;
+            }
+
+            &:hover {
+                background: darken($clr-greend, 5%);
+            }
+        }
+    }
+}

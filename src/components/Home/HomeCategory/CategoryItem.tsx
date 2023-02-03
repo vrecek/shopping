@@ -15,7 +15,7 @@ const CategoryItem = ({cname, image, category}: CategoryItemType) => {
 
                 <p className={ styles['header'] }>{category}</p>
                 <p className={ styles['desc'] }>Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam voluptates distinctio</p>
-                <Button text='Explore' />
+                <Button>Explore</Button>
 
             </section>
 

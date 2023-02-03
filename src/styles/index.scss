@@ -20,6 +20,81 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: $clr-blackd;
 
+    article.basic-product {
+        width: 25%;
+        margin: 0 1em;
+        flex-shrink: 0;
+        padding: 1.5em;
+        @include Flex(sb, none, c);
+        transition: .5s;
+        cursor: pointer;
+        border-radius: .2em;
+
+        section {
+            @include Flex(none, c);
+            color: $clr-greend;
+            margin: 1em 0 1.5em 0;
+
+            span {
+                @include Rectangle(25px);
+
+                &:not(.active) {
+                    color: $clr-blackl;
+                }
+            }
+
+            p {
+                margin-left: .5em;
+            }
+        }
+
+        p {
+            &.price {
+                font-weight: 700;
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+                @include Flex(fs);
+
+                &::after {
+                    margin-left: .25em;
+                    content: '$';
+                    font-size: 1rem;
+                }
+            }
+
+            &.name {
+                font-family: 'Epilogue', sans-serif;
+                color: $clr-blackl;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+
+        figure {
+            width: 70%;
+            margin: 0 auto;
+            margin-bottom: 1.5em;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &:hover {
+            background: $clr-greenl;
+
+            section span {
+                color: $clr-whitel;
+
+                &:not(.active) {
+                    color: $clr-blackd;
+                }
+            }
+
+            p { color: $clr-whitel; }
+        }
+    }
+
     section.product-in-stock {
         margin: 1.5em 0;
         border-left: 4px solid $clr-greenl;

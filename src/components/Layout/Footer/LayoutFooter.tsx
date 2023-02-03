@@ -36,7 +36,7 @@ const LayoutFooter = () => {
 
             <section>
 
-                <Logo cname={ styles['logo'] } />
+                <Logo moduleClassname={ styles['logo'] } />
 
                 <LinksList list={list1} />
                 <LinksList list={list2} />

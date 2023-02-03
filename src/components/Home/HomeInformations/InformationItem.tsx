@@ -29,11 +29,12 @@ const InformationItem = ({desc, header, icon, button}: InformationItemType) => {
             {
                 button &&
                     <Button 
-                        text={button.str} 
                         enter={btnHover}
                         leave={btnHoverOut}
                         action={() => redirect(button.url)} 
-                    />
+                    >
+                        {button.str}
+                    </Button>
             }
 
         </article>

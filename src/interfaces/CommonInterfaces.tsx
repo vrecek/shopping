@@ -1,3 +1,6 @@
+import { Aliases } from "@/util/Client"
+import { NavigationWrapType } from "./NavigationInterfaces"
+
 export type LinkOptions = {
     url: string
     text: string
@@ -21,4 +24,16 @@ export type ProductAvailableType = {
     containerClass?: string
 }
 
+export type HeadDataOptions = Aliases.Text<JSX.Element> & {
+    title?: string
+}
+
+export type LayoutWrapType = HeadDataOptions & NavigationWrapType
+
 export type RedirectType = (url: string) => void
+
+export type KeyValue = {
+    what: string
+    value: string | number
+    cname?: string
+}

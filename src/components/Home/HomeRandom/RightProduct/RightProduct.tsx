@@ -28,7 +28,7 @@ const RightProduct = () => {
 
             <p className={ styles['price'] }>999</p>
 
-            <Button text='View' />
+            <Button>View</Button>
 
         </article>
     )

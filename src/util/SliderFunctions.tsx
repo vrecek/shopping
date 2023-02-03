@@ -1,5 +1,7 @@
 const setSlide = (slider: HTMLElement, nr: number): void => slider.setAttribute('slide', nr.toString())
+
 const getSlide = (slider: HTMLElement): number => parseInt(slider.getAttribute('slide') ?? '2')
+
 const getSliderComponent = (): HTMLElement | null => document.querySelector('.home-header-container') ?? null
 
 const intervalSliderFunc = (slider: HTMLElement): void => {
@@ -14,6 +16,8 @@ const intervalSliderFunc = (slider: HTMLElement): void => {
 } 
 
 const INTERVAL_TIME: number = 6000
+
+
 
 export {
     setSlide,

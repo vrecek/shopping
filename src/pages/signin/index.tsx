@@ -28,7 +28,7 @@ const SignIn = () => {
                     <InputDiv label='Password' type='password' />
                     <RememberAndForgotPassword />
 
-                    <Button text='Sign in' />
+                    <Button>Sign in</Button>
                     <AccountReminder type='noAccount' />
 
                 </form>

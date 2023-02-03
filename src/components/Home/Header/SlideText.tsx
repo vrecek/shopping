@@ -15,8 +15,9 @@ const SlideText = ({header, para, buttonText, buttonUrl}: SlideTextType) => {
             <p className={ styles['slide-description'] }>{para}</p>
             <Button 
                 action={() => redirect(buttonUrl)} 
-                text={buttonText} 
-            />
+            >
+                {buttonText}
+            </Button>
 
         </section>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 
 type ButtonOptions = {
-    text: string
+    children: string
     additional?: JSX.Element | string | number
     cname?: string
     action?: React.MouseEventHandler
@@ -10,12 +10,12 @@ type ButtonOptions = {
 }
 
 
-const Button = ({text, additional, cname, action, enter, leave}: ButtonOptions) => {
+const Button = ({children, additional, cname, action, enter, leave}: ButtonOptions) => {
     return (
         <button onMouseLeave={leave} onMouseEnter={enter} onClick={action} className={cname ?? ''}>
 
             <label>
-                {text}
+                {children}
             </label>
 
             {

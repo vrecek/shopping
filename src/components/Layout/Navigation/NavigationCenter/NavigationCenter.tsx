@@ -8,7 +8,7 @@ import styles from '@/styles/Layout/LayoutNavigation.module.scss'
 
 const NavigationCenter = ({moduleClassname}: ModuleClassname) => {
     return (
-        <section className={moduleClassname}>
+        <section id='layout-navigation-center' className={moduleClassname}>
 
             <Logo moduleClassname={ styles['logo'] } />
             <Searchbar />

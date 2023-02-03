@@ -10,7 +10,7 @@ import { AiOutlineLogin } from 'react-icons/ai'
 
 const NavigationIcons = () => {
     const links: LinkOptions[] = [
-        {text: 'Basket', url: '/', icon: <BsBasket />},
+        {text: 'Basket', url: '/basket', icon: <BsBasket />},
         {text: 'Sign in', url: '/signin', icon: <AiOutlineLogin />},
         // {text: 'Profile', url: '/', icon: <SlUser />}
     ]

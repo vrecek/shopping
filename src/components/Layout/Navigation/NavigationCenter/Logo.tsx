@@ -6,7 +6,7 @@ import React from 'react'
 const Logo = ({moduleClassname}: ModuleClassname) => {
     return (
         <Link href='/' className={moduleClassname}>
-            Sho<span>pp</span>ing
+            Fashi<span>on</span>ista
         </Link>
     )
 }

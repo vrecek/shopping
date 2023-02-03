@@ -1,4 +1,4 @@
-const ErrorPage = () => {
+const ErrorNotFoundPage = () => {
     return (
         <main className="error-page">
 
@@ -8,4 +8,4 @@ const ErrorPage = () => {
     )
 }
 
-export default ErrorPage
+export default ErrorNotFoundPage
