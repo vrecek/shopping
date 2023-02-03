@@ -6,7 +6,11 @@ const FilterCategory = ({categoryName, availableProducts}: CategoryFilter) => {
         <section>
 
             <label>
-                <input id={categoryName} name='category-select' type="radio" />
+                <input 
+                    id={categoryName} 
+                    name='category-select' 
+                    type="radio" 
+                />
                 <div></div>
                 {categoryName}
             </label>

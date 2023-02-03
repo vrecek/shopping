@@ -2,16 +2,23 @@ import LayoutWrap from "@/components/Layout/LayoutWrap"
 import ProductsEmpty from "@/components/Search/ProductsEmpty"
 import ProductsFound from "@/components/Search/ProductsFound"
 import { ProductItemType } from "@/interfaces/HomeInterfaces"
-import { SearchParams, SearchProps } from "@/interfaces/SearchInterfaces"
+import { SearchParams, SearchProducts, SearchProps } from "@/interfaces/SearchInterfaces"
+import React from "react"
 
 
 const SearchPage = ({products, query}: SearchProps) => {
+    const [productsData, setProducts] = React.useState<SearchProducts>({
+        original: products,
+        products
+    })
+
+
     return (
         <LayoutWrap onlyCenter={true} title="Search">
 
             {
                 products?.length
-                    ? <ProductsFound query={query} products={products} />
+                    ? <ProductsFound filterProducts={setProducts} query={query} products={productsData.products} />
                     : <ProductsEmpty query={query} />
             }
 

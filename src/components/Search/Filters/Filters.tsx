@@ -1,10 +1,14 @@
 import FilterCategory from "./FilterCategory"
 import styles from '@/styles/Search/Search.module.scss'
-import { CategoryFilter } from "@/interfaces/SearchInterfaces"
+import { CategoryFilter, FilterSet } from "@/interfaces/SearchInterfaces"
 import FilterPrice from "./FilterPrice"
+import FiltersText from "./FiltersText"
+import { Aliases } from "@/util/Client"
 
 
-const Filters = () => {
+const Filters = ({filterProducts}: FilterSet) => {
+    const MAX_PRICE_VALUE: number = 200
+
     const f: CategoryFilter[] = [
         { availableProducts: 50, categoryName: 'All' },
         { availableProducts: 50, categoryName: 'T-shirts' },
@@ -13,13 +17,32 @@ const Filters = () => {
         { availableProducts: 50, categoryName: 'Accessories' },
     ]
 
+    const changeFilters = (e: React.FormEvent): void => {
+        e.preventDefault()
+
+        const form: HTMLFormElement = e.currentTarget as HTMLFormElement,
+              [price, ...categories]: HTMLInputElement[] = [...form.elements as Aliases.Inputs]
+
+
+        filterProducts(curr => {
+            // const filteredProducts: ProductItemType[] = []
+
+            // curr.products = filteredProducts
+
+            return {...curr}
+        })        
+    }
+
 
     return (
-        <aside className={ styles['filter-aside'] }>
+        <form onSubmit={changeFilters} className={ styles['filter-form'] }>
 
-            <h3>Filters</h3>
+            <FiltersText moduleClassname={ styles['div-text'] } />
 
-            <FilterPrice moduleClassname={ styles['filter-price'] } />
+            <FilterPrice 
+                MAX_PRICE_VALUE={MAX_PRICE_VALUE}
+                moduleClassname={ styles['filter-price'] } 
+            />
 
             <section className={ styles['filter-categories'] }>
                 {
@@ -33,7 +56,7 @@ const Filters = () => {
                 }
             </section>
 
-        </aside>
+        </form>
     )
 }
 

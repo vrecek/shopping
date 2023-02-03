@@ -8,7 +8,11 @@ export type SearchParams = {
     }
 }
 
-export type SearchProps = {
+export type FilterSet = {
+    filterProducts: React.Dispatch<React.SetStateAction<SearchProducts>>
+}
+
+export type SearchProps = FilterSet & {
     query: string
     products: ProductItemType[]
 }
@@ -25,5 +29,10 @@ export type CategoryFilter = {
 }
 
 export type PriceFilter = ModuleClassname & {
+    MAX_PRICE_VALUE: number
+}
 
+export type SearchProducts = {
+    original: ProductItemType[]
+    products: ProductItemType[]
 }

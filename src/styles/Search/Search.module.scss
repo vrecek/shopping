@@ -38,16 +38,70 @@ main.search-page {
         margin-top: 4em;
         @include Flex(sb, fs);
 
-        aside.filter-aside {
+        form.filter-form {
             width: 25%;
             position: sticky;
             top: 120px;
 
+            div.div-text {
+                @include Flex(sb, c);
+                margin-bottom: 1.5em;
+
+                button {
+                    outline: 0;
+                    border: 0;
+                    border-radius: .25em;
+                    background: $clr-greend;
+                    cursor: pointer;
+                    transition: .5s;
+
+                    label {
+                        display: block;
+                        pointer-events: none;
+                        color: $clr-whitel;
+                        font-size: .9rem;
+                        font-weight: 500;
+                        padding: .5em .75em;
+                    }
+
+                    &:hover {
+                        background: $clr-greenl;
+                    }
+                }
+
+                h3 {
+                    font-size: 1.35rem;
+                    font-weight: 600;
+                }
+            }
+
             section.filter-price {
                 margin-bottom: 2em;
+                border-top: 2px solid $clr-greyl;
+                border-bottom: 2px solid $clr-greyl;
+                padding-top: 2em;
+                padding-bottom: 2.5em;
 
                 input {
                     width: 100%;
+                    appearance: none;
+                    border-radius: 2em;
+                    border: 2px solid $clr-greenl;
+                    height: 1em;
+                    background: none;
+                    
+                    &::-moz-range-thumb {
+                        appearance: none;
+                        @include Rectangle(30px);
+                        background: $clr-greend;
+                        border: none;
+                    }
+                }
+
+                p {
+                    font-weight: 500;
+                    position: relative;
+                    margin-bottom: .5em;
                 }
             }
 
@@ -99,12 +153,6 @@ main.search-page {
                         border-radius: 2em;
                     }
                 }
-            }
-
-            h3 {
-                font-size: 1.35rem;
-                font-weight: 600;
-                margin-bottom: 1.5em;
             }
         }
     

@@ -5,11 +5,11 @@ import { SearchProps } from "@/interfaces/SearchInterfaces"
 import QueryInfo from "./QueryInfo"
 
 
-const ProductsFound = ({products, query}: SearchProps) => {
+const ProductsFound = ({products, query, filterProducts}: SearchProps) => {
     return (
         <main className={ `${styles['search-page']} ${styles['products-found']}` } >
 
-            <Filters />
+            <Filters filterProducts={filterProducts} />
 
             <section className={ styles['products-wrap'] }>
 
