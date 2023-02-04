@@ -1,3 +1,6 @@
 export type ProductType = {
-    image: string
+    name: string
+    mainImage: string
+    additionalImages: string[]
+    sizes: string[]
 }

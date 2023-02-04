@@ -1,6 +1,7 @@
 import LayoutWrap from "@/components/Layout/LayoutWrap"
 import ProductsEmpty from "@/components/Search/ProductsEmpty"
 import ProductsFound from "@/components/Search/ProductsFound"
+import { PageParams } from "@/interfaces/CommonInterfaces"
 import { ProductItemType } from "@/interfaces/HomeInterfaces"
 import { SearchParams, SearchProducts, SearchProps } from "@/interfaces/SearchInterfaces"
 import React from "react"
@@ -27,7 +28,7 @@ const SearchPage = ({products, query}: SearchProps) => {
 }
 
 
-const getServerSideProps = async ({ params: { query, type } }: SearchParams) => {
+const getServerSideProps = async ({ params: { query, type } }: PageParams<SearchParams>) => {
     if (type !== 'bar' && type !== 'category') 
         return {
             redirect: {

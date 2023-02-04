@@ -37,3 +37,12 @@ export type KeyValue = {
     value: string | number
     cname?: string
 }
+
+export type PageParams<T> = {
+    params: T
+}
+
+export type IconText = {
+    icon: JSX.Element
+    text: string
+}

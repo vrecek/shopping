@@ -4,11 +4,14 @@ import React from 'react'
 import styles from '@/styles/Home/HomeProductsTiles.module.scss'
 import ProductRating from '@/components/Common/ProductRating'
 import Button from '@/components/Common/Button'
+import { useRouter } from 'next/router'
 
 
 const TileProduct = ({cname, product}: TileContainerType) => {
+    const redirect = useRouter().push
     const prodRef = React.useRef<HTMLDivElement>(null)
 
+    
     React.useEffect(() => {
         const article = prodRef.current!,
               image: HTMLElement = article.children[0].children[0] as HTMLElement
@@ -20,21 +23,18 @@ const TileProduct = ({cname, product}: TileContainerType) => {
         } 
     }, [])
 
-    const btnHover = (e: React.MouseEvent): void => {
+    const btnHoverFunc = (e: React.MouseEvent, type: 'in' | 'out'): void => {
         const t: Element = e.currentTarget!;
 
-        (t.parentElement!.parentElement!.children[0] as HTMLElement).style.opacity = '1'
-    }
-
-    const btnHoverOut = (e: React.MouseEvent): void => {
-        const t: Element = e.currentTarget!;
-
-        (t.parentElement!.parentElement!.children[0] as HTMLElement).style.opacity = '.3'
+        (t.parentElement!.parentElement!.children[0] as HTMLElement).style.opacity = 
+        type === 'in'
+            ? '1'
+            : '.3'
     }
 
 
     return (
-        <article ref={prodRef} className={cname}>
+        <article onClick={() => redirect(`/product/${'id'}`)} ref={prodRef} className={cname}>
 
             <Image source={product.image} />
 
@@ -55,8 +55,8 @@ const TileProduct = ({cname, product}: TileContainerType) => {
                 <p className={ styles['price'] }>999</p>
 
                 <Button 
-                    enter={btnHover} 
-                    leave={btnHoverOut}
+                    enter={(e) => btnHoverFunc(e, 'in')} 
+                    leave={(e) => btnHoverFunc(e, 'out')}
                 >
                     View
                 </Button>

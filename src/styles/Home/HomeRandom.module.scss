@@ -73,6 +73,7 @@ section.home-random {
                         font-size: 2rem;
                         @include Flex(none, fs);
                         font-weight: 500;
+                        margin-top: .25em;
 
                         &::after {
                             content: '$';

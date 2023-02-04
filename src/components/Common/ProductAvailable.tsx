@@ -42,7 +42,7 @@ const ProductAvailable = ({productsNum, containerClass}: ProductAvailableType) =
 
 
     return (
-        <section className={containerClass ?? 'product-in-stock'}>
+        <section className={`product-in-stock ${containerClass}`}>
 
             <div>
                 <Icon><AiOutlineCheckCircle /></Icon>

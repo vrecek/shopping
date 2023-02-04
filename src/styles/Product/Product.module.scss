@@ -1,0 +1,202 @@
+@import '../config';
+
+main.product-page {
+    min-height: 100vh;
+    padding: 2em;
+    padding-top: 4em;
+
+    section.main-wrap {
+        @include Flex(sb, fs);
+
+        section.product-right {
+            width: 45%;
+
+            h1 {
+                font-size: 2rem;
+                font-weight: 600;
+                font-family: 'Epilogue', sans-serif;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+                color: rgb(100, 100, 100)
+            }
+
+            h3 {
+                font-size: 2.5rem;
+                font-weight: 600;
+                @include Flex(none, fs);
+                margin-top: .75em;
+                color: $clr-greend;
+                font-family: 'Epilogue', sans-serif;
+
+                &::after {
+                    font-size: 1.5rem;
+                    content: '$';
+                    margin-left: .25em;
+                }
+            }
+
+            p.desc {
+                line-height: 1.5em;
+                letter-spacing: 1px;
+                font-weight: 500;
+                color: rgb(100, 100, 100)
+            }
+
+            section {
+                &.misc-informations {
+                    margin-top: 2em;
+
+                    div {
+                        @include Flex(none, c);
+                        &:not(:last-child) {
+                            margin-bottom: 1em;
+                        }
+
+                        span {
+                            @include Rectangle(35px);
+                            margin-right: .75em;
+                        }
+
+                        p {
+                            font-family: 'Epilogue', sans-serif;
+                            font-size: .95rem;
+                        }
+                    }
+                }
+
+                &.select-size {
+                    margin: 1.75em 0 2em 0;
+                    border-top: 1px solid $clr-greyd;
+                    padding-top: 2em;
+
+                    div {
+                        @include Flex(sb, c);
+                        border: 1px solid $clr-blackl;
+                        padding: .8em 1.25em;
+                        border-radius: .2em;
+                        cursor: pointer;
+                        
+                        p {
+                            opacity: .8;    
+                        }
+
+                        span {
+                            @include Rectangle(30px);
+                            transition: .5s;
+                        }
+                    }
+
+                    ul {
+                        display: none;
+                        height: 0;
+                        overflow: hidden;
+                        transition: .5s;
+                        list-style: none;
+                        border: 1px solid $clr-blackl;
+                        border-top: 0;
+
+                        li {
+                            padding: .75em 1.25em;
+                            cursor: pointer;
+                            transition: .5s;
+
+                            &:hover {
+                                background: rgba(207, 207, 207, 0.2);
+                            }
+                        }
+                    }
+                }
+
+                &.rating {
+                    @include Flex(none, c);
+                    margin: 2em 0;
+    
+                    span {
+                        @include Rectangle(40px);
+    
+                        &.rating-active {
+                            color: $clr-greenl;
+                        }
+                    }
+    
+                    p {
+                        color: $clr-greenl;
+                        font-size: 1.25rem;
+                        margin-left: .25em;
+                    }
+                }
+
+                &.available section {
+                    width: 100%;
+                }
+            }
+
+            button {
+                width: 100%;
+                background: $clr-greenl;
+                outline: 0;
+                border: 0;
+                transition: .5s;
+                cursor: pointer;
+                border-radius: .25em;
+                margin-top: 2em;
+                @include Flex(c, c);
+                color: $clr-whitel;
+
+                span {
+                    @include Rectangle(25px);
+                    margin-left: .75em;
+                }
+
+                label {
+                    padding: 1em 0;
+                    display: block;
+                    pointer-events: none;
+                    font-weight: 500;
+                }
+
+                &:hover {
+                    background: $clr-greend;
+                }
+            }
+        }
+
+        section.product-image {
+            width: 45%;
+            aspect-ratio: 1;
+            @include Flex(sb, c);
+            position: sticky;
+            top: 100px;
+
+            figure {
+                @include Flex(c, c);
+
+                &.main-image {
+                    width: 80%;
+                }
+
+                img { width: 100%; }
+            }
+
+            section {
+                width: 15%;
+
+                figure {
+                    width: 100%;
+                    aspect-ratio: 1;
+                    cursor: pointer;
+                    transition: .5s;
+                    border-radius: .25em;
+
+                    &.image-active {
+                        pointer-events: none;
+                        background: rgba(4, 170, 109, .5);
+                        padding: .5em;
+                    }
+                }
+            }
+        }
+    }
+}

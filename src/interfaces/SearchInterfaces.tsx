@@ -2,10 +2,8 @@ import { ModuleClassname } from "./CommonInterfaces"
 import { ProductItemType } from "./HomeInterfaces"
 
 export type SearchParams = {
-    params: {
-        type: 'bar' | 'category'
-        query: string
-    }
+    type: 'bar' | 'category'
+    query: string
 }
 
 export type FilterSet = {
