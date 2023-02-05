@@ -7,6 +7,7 @@ import SelectSize from './SelectSize'
 import MiscInformations from './MiscInformations'
 import React from 'react'
 import { OrderSize, ProductRightType } from '@/interfaces/ProductPageInterfaces'
+import ProductTextInformations from './ProductTextInformations'
 
 
 const ProductRight = ({sizes}: ProductRightType) => {
@@ -16,9 +17,7 @@ const ProductRight = ({sizes}: ProductRightType) => {
     return (
         <section className={ styles['product-right'] }>
 
-            <h2>Company</h2>
-            <h1>Lorem ipsum dolor sitamet</h1>
-            <h3>999</h3>
+            <ProductTextInformations />
 
             <ProductRating 
                 activeClass={ styles['rating-active'] } 

@@ -26,3 +26,22 @@ export type SizeTogglerType = {
     dropdown: DD.DropDown
     currentSize: OrderSize
 }
+
+export enum DisplaySections {
+    COMMENTS = 'COMMENTS',
+    DESCRIPTION = 'DESCRIPTION'
+}
+
+export type SelectSectionList = {
+    name: string
+    setArg: DisplaySections
+}
+
+export type DisplaySelectType = {
+    setDisplay: React.Dispatch<React.SetStateAction<JSX.Element>>
+}
+
+export type UserRatingType = ModuleClassname & {
+    rate: number
+    activeClassname: string
+}

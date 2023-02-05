@@ -29,7 +29,7 @@ const SelectSize = ({currentSize, moduleClassname, setSize, sizes}: SelectSizeTy
 
                 {
                     sizes.map(size => (
-                        <li onClick={(e) => changeCurrentSize(e, size)}>
+                        <li key={size} onClick={(e) => changeCurrentSize(e, size)}>
                             {size}
                         </li>
                     ))

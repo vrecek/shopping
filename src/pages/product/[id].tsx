@@ -1,4 +1,6 @@
 import LayoutWrap from '@/components/Layout/LayoutWrap';
+import Description from '@/components/Product/ProductBottom/Description/Description';
+import DisplaySelect from '@/components/Product/ProductBottom/DisplaySelect';
 import ProductImage from '@/components/Product/ProductImage/ProductImage';
 import ProductRight from '@/components/Product/ProductRight/ProductRight';
 import { PageParams } from '@/interfaces/CommonInterfaces';
@@ -9,6 +11,7 @@ import React from 'react';
 
 const ProductPage = ({searchedProduct}: {searchedProduct: ProductType}) => {
     const [product, setProducts] = React.useState<ProductType>(searchedProduct)
+    const [displaySection, setDisplay] = React.useState<JSX.Element>(<Description />)
 
     const {additionalImages, mainImage, name, sizes} = product
 
@@ -30,6 +33,12 @@ const ProductPage = ({searchedProduct}: {searchedProduct: ProductType}) => {
                     />
                     
                 </section>
+
+                <DisplaySelect 
+                    setDisplay={setDisplay}
+                />
+
+                {displaySection}
 
             </main>
 

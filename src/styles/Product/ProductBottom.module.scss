@@ -1,0 +1,170 @@
+@import '../config';
+
+section {
+    &.comments-section {
+        @include Flex(sb, fs);
+
+        ul.rating-summary {
+            margin-bottom: 3em;
+            list-style: none;
+            width: 35%;
+            position: sticky;
+            top: calc(50vh - 15%);
+
+            li {
+                @include Flex(sb, c);
+                &:not(:last-child) { margin-bottom: .75em; }
+
+                p {
+                    font-size: 1.15rem;
+                    color: $clr-greend;
+                    font-weight: 500;
+                }
+
+                p.total-votes {
+                    margin-left: .75em;
+                }
+
+                div {
+                    &.rating-first {
+                        margin-right: .75em;
+                        @include Flex(none, c);
+
+                        span {
+                            @include Rectangle(35px);
+                            margin-right: .2em;
+                            color: $clr-greend;
+                        }
+                    }
+
+                    &.rating-bar {
+                        height: 30px;
+                        background: rgb(235, 235, 235);
+                        flex-grow: 1;
+
+                        div {
+                            width: 40%;
+                            height: 100%;
+                            background: $clr-greend;
+                        }
+                    }
+                }
+            }
+        }
+
+        section.comments-wrap {
+            width: 60%;
+
+            div.comment-toggler {
+                @include Flex(none, c);
+                margin-bottom: 3em;
+                cursor: pointer;
+                width: max-content;
+
+                p {
+                    margin-right: 1em;
+                    font-family: 'Epilogue', sans-serif;
+                    font-weight: 500;
+                    font-size: 1.25rem;
+                }
+
+                span {
+                    @include Rectangle(40px);
+                    transition: .5s;
+                }
+            }
+
+            section.comments-container {
+                transition: .5s;
+
+                article {
+                    @include Flex(sb, fs);
+                    &:not(:last-child) {
+                        margin-bottom: 2em;
+                    }
+    
+                    figure {
+                        width: 10%;
+                        aspect-ratio: 1;
+    
+                        img {
+                            @include FullSize;
+                            object-fit: cover;
+                        }
+                    }
+    
+                    section.text-wrap {
+                        background: rgb(235, 235, 235);
+                        width: 90%;
+                        padding: .75em;
+    
+                        p.text {
+                            font-size: .95rem;
+                            line-height: 2em;
+                            margin: .5em 0;
+                        }
+    
+                        section.comment-details {
+                            @include Flex(sb, c);
+    
+                            p {
+                                font-size: .85rem;
+                                padding: .25em .5em;
+                                background: $clr-greenl;
+                                border-radius: .25em;
+                                color: $clr-whitel; 
+                                font-weight: 500;
+                            }
+                        }
+    
+                        section.user-rating {
+                            display: flex;
+    
+                            span {
+                                @include Rectangle(25px);
+    
+                                &.active-rate {
+                                    color: $clr-greenl;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.description-section {
+        background: green;
+    }
+}
+
+ul.display-select {
+    margin-top: 4em;
+    margin-bottom: 3em;
+    display: flex;
+    list-style: none;
+    background: rgb(235, 235, 235);
+    border-radius: .25em;
+
+    li {
+        padding: 1.5em 2em;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        font-weight: 600;
+        font-family: 'Epilogue', sans-serif;
+        color: $clr-greend;
+
+        span.display-span-indicator {
+            background: $clr-greend;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            top: 100%;
+            height: 5px;
+            transition: .5s;
+            pointer-events: none;
+        }
+    }
+}
