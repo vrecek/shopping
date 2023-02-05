@@ -3,6 +3,7 @@ import Description from '@/components/Product/ProductBottom/Description/Descript
 import DisplaySelect from '@/components/Product/ProductBottom/DisplaySelect';
 import ProductImage from '@/components/Product/ProductImage/ProductImage';
 import ProductRight from '@/components/Product/ProductRight/ProductRight';
+import SimilarProducts from '@/components/Product/SimilarProducts';
 import { PageParams } from '@/interfaces/CommonInterfaces';
 import { ProductType } from '@/interfaces/ProductType';
 import styles from '@/styles/Product/Product.module.scss'
@@ -39,6 +40,9 @@ const ProductPage = ({searchedProduct}: {searchedProduct: ProductType}) => {
                 />
 
                 {displaySection}
+                
+                <SimilarProducts header="You may like it" />
+                <SimilarProducts header="Other from category" />
 
             </main>
 

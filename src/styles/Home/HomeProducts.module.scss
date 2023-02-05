@@ -4,34 +4,6 @@ section.home-products {
     padding: 4em 2em;
     @include Flex(none, none, c);
 
-    section.products-container {
-        @include Flex(sb);
-
-        span.arrow {
-            @include Flex(c, c);
-            cursor: pointer;
-            background: rgb(250, 250, 250);
-            padding: 0 .5em;
-
-            svg {
-                @include Rectangle(40px);
-                transition: .3s;
-            }
-
-            &:hover {
-                color: $clr-greenl;
-            }
-        }
-
-        section.products-wrapper {
-            flex-grow: 1;
-            padding: 2em;
-            display: flex;
-            overflow: hidden;
-            background: rgb(250, 250, 250);
-        }
-    }
-
     section.section-description {
         @include Flex(sb, c);
         margin-bottom: 2em;

@@ -4,6 +4,21 @@ main.product-page {
     min-height: 100vh;
     padding: 2em;
 
+    section.similar-products {
+        margin: 4em 0;
+        padding: 0 1em;
+
+        p.products-header {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 1em;
+            color: $clr-greenl;
+            border-left: 4px solid $clr-greend;
+            padding-left: .5em;
+            font-weight: 600;
+        }
+    }
+
     section.main-wrap {
         @include Flex(sb, fs);
 

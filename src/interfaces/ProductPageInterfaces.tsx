@@ -45,3 +45,7 @@ export type UserRatingType = ModuleClassname & {
     rate: number
     activeClassname: string
 }
+
+export type SimilarProductsType = {
+    header: string
+}

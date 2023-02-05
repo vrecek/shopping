@@ -2,12 +2,9 @@ import Icon from '@/components/Common/Icon'
 import { Aliases } from '@/util/Client'
 import React from 'react'
 import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs'
-import styles from '../../../styles/Home/HomeProducts.module.scss'
 
 
 const ProductsContainer = ({children}: Aliases.Text<JSX.Element[]>) => {
-    const {arrow, 'products-container': pc, 'products-wrapper': pw} = styles
-
     const scrollProducts = (e: React.MouseEvent, direction: 'left' | 'right'): void => {
         const t: HTMLElement = e.currentTarget! as HTMLElement,
               svg: HTMLElement = t.children[0] as HTMLElement,
@@ -28,19 +25,19 @@ const ProductsContainer = ({children}: Aliases.Text<JSX.Element[]>) => {
 
 
     return (
-        <section className={pc}>
+        <section className='basic-products-container'>
 
-            <Icon action={(e) => scrollProducts(e, 'left')} cname={arrow}>
+            <Icon action={(e) => scrollProducts(e, 'left')} cname='arrow'>
                 <BsArrowLeftCircle />
             </Icon>
 
-            <section className={pw}>
+            <section className='products-wrapper'>
 
                 {children}
 
             </section>
 
-            <Icon action={(e) => scrollProducts(e, 'right')} cname={arrow}>
+            <Icon action={(e) => scrollProducts(e, 'right')} cname='arrow'>
                 <BsArrowRightCircle />
             </Icon>
 

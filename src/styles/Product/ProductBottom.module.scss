@@ -94,7 +94,7 @@ section {
                     }
     
                     section.text-wrap {
-                        background: rgb(235, 235, 235);
+                        background: rgb(240, 240, 240);
                         width: 90%;
                         padding: .75em;
     
@@ -135,7 +135,45 @@ section {
     }
 
     &.description-section {
-        background: green;
+        @include Flex(sb, none  );
+
+        section.description-object {
+            @include Flex(fs, c);
+            width: 45%;
+
+            &:not(:last-child) {
+                margin-bottom: 2em;
+            }
+
+            p { font-size: .9rem; }
+
+            p.header {
+                text-transform: uppercase;
+                color: rgb(100, 100, 100);
+                margin-right: 5em;
+            }
+
+            ul {
+                list-style: none;
+                flex-grow: 1;
+
+                li {
+                    @include Flex(sb, c);
+                    border-bottom: 1px solid $clr-greyl;
+                    padding: 1.5em;
+
+                    p {
+                        &.key {
+                            font-weight: 600;
+                        }
+
+                        &.value {
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -144,7 +182,7 @@ ul.display-select {
     margin-bottom: 3em;
     display: flex;
     list-style: none;
-    background: rgb(235, 235, 235);
+    background: rgb(240, 240, 240);
     border-radius: .25em;
 
     li {
@@ -152,7 +190,7 @@ ul.display-select {
         text-align: center;
         cursor: pointer;
         position: relative;
-        font-weight: 600;
+        font-weight: 500;
         font-family: 'Epilogue', sans-serif;
         color: $clr-greend;
 
