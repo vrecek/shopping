@@ -3,6 +3,7 @@ import ProductRating from '@/components/Common/ProductRating'
 import React from 'react'
 import { ProductItemType } from '@/interfaces/HomeInterfaces'
 import { useRouter } from 'next/router'
+import ProductPrice from '@/components/Common/ProductPrice'
 
 
 const ProductItem = ({id, image, name, price, rate, totalRates}: ProductItemType) => {
@@ -17,9 +18,14 @@ const ProductItem = ({id, image, name, price, rate, totalRates}: ProductItemType
             <p className='name'>{name}</p>
 
             <div>
+
                 <ProductRating totalRates={totalRates} activeClass='active' rate={rate} />
 
-                <p className='price'>{price}</p>
+                <ProductPrice
+                    discountPercent={30}
+                    price={102}
+                />
+
             </div>
 
         </article>

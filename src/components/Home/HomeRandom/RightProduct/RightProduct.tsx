@@ -1,6 +1,7 @@
 import Button from '@/components/Common/Button'
 import Image from '@/components/Common/Image'
 import ProductAvailable from '@/components/Common/ProductAvailable'
+import ProductPrice from '@/components/Common/ProductPrice'
 import ProductRating from '@/components/Common/ProductRating'
 import styles from '@/styles/Home/HomeRandom.module.scss'
 import { useRouter } from 'next/router'
@@ -24,7 +25,11 @@ const RightProduct = () => {
                 totalRates={162}
             />
             
-            <p className={ styles['price'] }>999</p>
+            <ProductPrice
+                discountPercent={3}
+                price={102}
+                cname='home-random-price'
+            />
 
             <p className={ styles['desc'] }>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum nemo dolorem ipsa delectus, libero illum molestiae eos tempore repudiandae a qui eius odit</p>
 

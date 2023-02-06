@@ -5,6 +5,7 @@ import styles from '@/styles/Home/HomeProductsTiles.module.scss'
 import ProductRating from '@/components/Common/ProductRating'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/router'
+import ProductPrice from '@/components/Common/ProductPrice'
 
 
 const TileProduct = ({cname, product}: TileContainerType) => {
@@ -52,7 +53,11 @@ const TileProduct = ({cname, product}: TileContainerType) => {
                     activeClass={ styles['active'] } 
                 />
 
-                <p className={ styles['price'] }>999</p>
+                <ProductPrice
+                    discountPercent={3}
+                    price={231}
+                    cname='home-tiles-price'
+                />
 
                 <Button 
                     enter={(e) => btnHoverFunc(e, 'in')} 

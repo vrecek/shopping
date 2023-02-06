@@ -46,3 +46,10 @@ export type IconText = {
     icon: JSX.Element
     text: string
 }
+
+export type PriceType = {
+    price: number
+    discountPercent: number
+    cname?: string
+    showPercent?: boolean
+}

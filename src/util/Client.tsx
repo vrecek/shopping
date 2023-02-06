@@ -768,8 +768,8 @@ export default class Client {
     }
 
 
-    public static numberToDateString(num: number): string {
-        const diff: number = Date.now() - num
+    public static numberToDateString(dateNum: number): string {
+        const diff: number = Date.now() - dateNum
         const days: number = diff / 1000 / 60 / 60 / 24 
 
         if(days <= 1) return 'Today'
@@ -779,7 +779,7 @@ export default class Client {
     }
 
     
-    public static getRandomItemsFromArray<T>(arr: T[]): T[] {
+    public static getRandomItemFromArray<T>(arr: T[]): T[] {
         const random: number = ~~(Math.random() * arr.length)
 
         return arr.slice(0, random)

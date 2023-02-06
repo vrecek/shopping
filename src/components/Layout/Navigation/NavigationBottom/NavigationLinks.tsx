@@ -7,9 +7,9 @@ import styles from '../../../../styles/Layout/LayoutNavigation.module.scss'
 const NavigationLinks = () => {
     const list: LinkOptions[] = [
         {text: 'Discounts', url: '/'},
-        {text: 'News', url: '/'},
-        {text: 'About', url: '/'},
-        {text: 'Contact', url: '/'}
+        {text: 'Latest', url: '/'},
+        {text: 'Popular', url: '/'},
+        {text: 'Contact', url: '/contact'}
     ]
 
 

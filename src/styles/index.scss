@@ -20,6 +20,132 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: $clr-blackd;
 
+    p.item-price {
+        letter-spacing: 1px;
+        @include Flex(none, c);
+
+        span {
+            @include Flex(fs);
+
+            &::after {
+                margin-left: .25em;
+                content: '$';
+                font-size: 1rem;
+            }
+        }
+
+        span.original-price {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        &.discount {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+
+            span.original-price {
+                font-size: 1rem;
+                margin-left: .5em;
+                position: relative;
+                color: $clr-red;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    height: 3px;
+                    width: 90%;
+                    background: $clr-red;
+                    translate: -50% -50%;
+                    rotate:  30deg;
+                }
+            }
+
+            span.discount-price {
+                font-weight: 700;
+                font-size: 1.5rem;
+            }
+        }
+
+        &.basket-item-price {
+            width: 10%;
+            flex-direction: column;
+            align-items: center;
+
+            &.discount span.discount-price,
+            &:not(.discount) span.original-price {
+                font-weight: 500;
+                font-size: 1.25rem;
+
+                &::after {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        &.home-tiles-price {
+            &.discount span.discount-price,
+            &:not(.discount) span.original-price {
+                font-weight: 700;
+                font-size: 1.75rem;
+                text-shadow: 0 0 3px $clr-whitel;
+
+                &::after {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        &.home-random-price {
+            margin-top: 1em;
+
+            &.discount span.discount-price,
+            &:not(.discount) span.original-price {
+                font-size: 2rem;
+                font-weight: 500;
+
+                &::after {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        &.product-page-price {
+            margin-top: 2em;
+            position: relative;
+
+            span.discount-percent {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                translate: 0 -50%;
+                background: $clr-red;
+                padding: .5em 1em;
+                border-radius: .25em;
+                color: $clr-whitel;
+                font-size: 1.1rem;
+                font-weight: 600;
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            &.discount span.discount-price,
+            &:not(.discount) span.original-price {
+                font-size: 2.75rem;
+                font-weight: 600;
+                color: $clr-greend;
+                font-family: 'Epilogue', sans-serif;
+
+                &::after {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
     article.basic-product {
         width: 25%;
         margin: 0 1em;
@@ -49,19 +175,6 @@ body {
         }
 
         p {
-            &.price {
-                font-weight: 700;
-                font-size: 1.5rem;
-                letter-spacing: 1px;
-                @include Flex(fs);
-
-                &::after {
-                    margin-left: .25em;
-                    content: '$';
-                    font-size: 1rem;
-                }
-            }
-
             &.name {
                 font-family: 'Epilogue', sans-serif;
                 color: $clr-blackl;

@@ -3,6 +3,7 @@ import React from 'react'
 import ProductQuantity from './ProductQuantity'
 import styles from '@/styles/Basket/Basket.module.scss'
 import { BasketItemData } from '@/interfaces/BasketInterfaces'
+import ProductPrice from '@/components/Common/ProductPrice'
 
 
 const BasketProduct = ({quantity, setProducts, id, totalProducts}: BasketItemData) => {
@@ -20,7 +21,11 @@ const BasketProduct = ({quantity, setProducts, id, totalProducts}: BasketItemDat
                 totalProducts={totalProducts}
             />
 
-            <p className={ styles['price'] }>999 $</p>
+            <ProductPrice
+                discountPercent={3}
+                price={102}
+                cname='basket-item-price'
+            />
 
         </article>
     )
