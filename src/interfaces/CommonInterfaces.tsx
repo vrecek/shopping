@@ -8,6 +8,11 @@ export type LinkOptions = {
     cname?: string
 }
 
+export type SocialsType = {
+    icon: JSX.Element
+    url: string
+}
+
 export type ModuleClassname = {
     moduleClassname: string
 }

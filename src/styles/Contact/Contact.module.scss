@@ -1,0 +1,190 @@
+@import '../config';
+
+main.contact-page {
+    section.sections-wrap {        
+        @include Flex(c);
+        padding: 0 1em;
+
+        article,
+        form {
+            translate: 0 -50%;
+            background: $clr-whitel;
+            padding: 1em;
+        }
+
+        article {
+            width: 30%;
+            border-right: 0;
+            background-size: cover;
+            background-image: url('../../images/contact-article.jpg');
+            color: $clr-whitel;
+            border: 1px solid $clr-blackl;
+            @include Flex(sb, none, c);
+
+            section.left-text-header {
+                margin-bottom: 4em;
+
+                h2 {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    letter-spacing: 1.5px;
+                }
+
+                p {
+                    font-weight: 500;
+                    font-size: .9rem;
+                }
+            }
+
+            ul {
+                list-style: none;
+
+                li {
+                    @include Flex(none, c);
+
+                    &:not(:last-child) {
+                        margin-bottom: 1.5em;
+                    }
+
+                    span {
+                        @include Rectangle(60px);
+                        background: $clr-greend;
+                        margin-right: 1em;
+                        border-radius: .2em;
+                        @include Flex(c, c);
+
+                        svg {
+                            @include FullSize(80%)
+                        }
+                    }
+
+                    div {
+                        p {
+                            font-family: 'Epilogue', sans-serif;
+
+                            &.info-header {
+                                margin-bottom: .5em;
+                                font-weight: 700;
+                            }
+
+                            &.info-text {
+                                font-size: .9rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            section.socials-section {
+                display: flex;
+                margin-top: 4em;
+
+                span {
+                    cursor: pointer;
+                    transition: .5s;
+                    margin-right: .5em;
+                    @include Rectangle(25px);
+
+                    &:hover {
+                        scale: 1.5;
+                    }
+                }
+            }
+        }
+
+        form {
+            width: 40%;
+            background: rgb(250, 250, 250);
+
+            h3 {
+                text-align: center;
+                font-size: 1.4rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                margin-bottom: 1.25em;
+            }
+
+            div {
+                margin-bottom: 1em;
+
+                label {
+                    display: block;
+                    font-size: .8rem;
+                    font-weight: 500;
+                    margin-bottom: .2em;
+                }
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: .75em;
+                outline: 0;
+                font-family: 'Open Sans', sans-serif;
+                font-size: .95rem;
+                border: 1px solid $clr-greyd;
+            }
+
+            textarea {
+                resize: none;
+                margin-bottom: 2em;
+                min-height: 200px;
+            }
+
+            button {
+                cursor: pointer;
+                background: $clr-greenl;
+                outline: 0;
+                border: 0;
+                transition: .5s;
+                border-radius: .25em;
+
+                label {
+                    display: block;
+                    color: $clr-whitel;
+                    pointer-events: none;
+                    padding: 1em 2em;
+                }
+
+                &:hover {
+                    background: darken($clr-greenl, 10%)
+                }
+            }
+        }
+    }
+
+    header {
+        @include Flex(c, fs);
+        height: 55vh;
+        position: relative;
+
+        figure {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: .25;
+            @include FullSize;
+            
+            img {
+                @include FullSize;
+                object-fit: cover;
+            }
+        }
+
+        h1,
+        p {
+            color: $clr-whitel;
+            @include Layer;
+        }
+
+        h1 {
+            font-weight: 700;
+            text-shadow: 0 0 2px $clr-blackl;
+            border-bottom: 5px solid $clr-whitel;
+            font-size: 3rem;
+            margin-top: 1em;
+            letter-spacing: 4px;
+            word-spacing: 8px;
+        }
+    }
+}
