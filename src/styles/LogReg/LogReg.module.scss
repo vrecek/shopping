@@ -2,7 +2,7 @@
 
 main.sign-in,
 main.register {
-    height: 100vh;
+    min-height: 100vh;
     @include Flex(c, c);
 
     form {
@@ -13,25 +13,41 @@ main.register {
         min-width: 480px;
         background: rgb(232, 232, 232);
         @include Flex(sb, c, c);
+        position: relative;
 
         div.logreg-div {
             &:not(:last-of-type) { margin-bottom: 1em; }
             width: 100%;
 
-            label {
-                display: block;
-                font-size: .8rem;
-                font-weight: 500;
-            }
-
             input {
                 width: 100%;
                 padding: .75em;
+                padding-right: calc(1.25em + 30px);
                 outline: 0;
                 border: 1px solid $clr-greyd;
                 border-radius: .25em;
                 font-size: .9rem;
                 background: $clr-whitel;
+            }
+
+            div {
+                position: relative;
+
+                span {
+                    @include Rectangle(30px);
+                    cursor: pointer;
+                    position: absolute;
+                    right: .5em;
+                    top: 50%;
+                    color: $clr-greend;
+                    translate: 0 -50%;
+                }
+            }
+
+            label {
+                display: block;
+                font-size: .8rem;
+                font-weight: 500;
             }
         }
 
@@ -93,9 +109,10 @@ main.register {
         }
     }
 
-    &.sign-in {        
+    &.sign-in {    
         section {
             @include Flex(sb, c);
+            margin-top: .5em;
             width: 100%;
 
             div {
@@ -109,10 +126,18 @@ main.register {
                     font-weight: 500;
                     margin-right: .25em;
                 }
-
-                input {
-                }
             }
+        }
+    }
+
+    @media (max-width: 480px) {
+        align-items: stretch;
+
+        form {
+            padding: 2em 1em;
+            @include ResetWidth;
+            width: 100%;
+            justify-content: center;            
         }
     }
 }

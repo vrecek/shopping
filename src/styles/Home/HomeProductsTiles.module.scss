@@ -68,6 +68,7 @@ section.home-products-tiles {
                 section.rating {
                     display: flex;
                     width: max-content;
+                    margin: .5em 0 1em 0;
 
                     p { display: none;}
 
@@ -123,6 +124,7 @@ section.home-products-tiles {
 
             &.small {
                 height: calc(50% - .4em);
+                min-width: 225px;
 
                 section.text-container {
                     @include Flex(sb, none, c);
@@ -140,13 +142,14 @@ section.home-products-tiles {
 
             &.big {
                 width: 50%;
+                min-width: 375px;
                 aspect-ratio: 1.25;
                 border-bottom: 4px solid $clr-greenl;
 
                 section.text-container {
                     p {
                         &.name {
-                            font-size: 2.75rem;
+                            @include Clamp(2, 8, 2.75);
                         }
 
                         &.company {
@@ -162,10 +165,56 @@ section.home-products-tiles {
                         margin: .75em 0 1.5em 0;
 
                         span {
-                            @include Rectangle(40px);
+                            @include Rectangle(clamp(30px, 6vw, 40px));
                         }
                     }
                 }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        section.row {
+            flex-direction: column;
+
+            &:not(.reversed) div { margin: 0; }
+
+            &.reversed {
+                flex-direction: column;
+
+                div { margin: 0; }
+            }
+
+            div {
+                width: 100%;
+            }
+
+            article {
+                &.big,
+                &.small {
+                    @include ResetWidth;
+                    width: 100%;
+
+                    &.small {
+                        height: auto;
+                    }
+
+                    &.big {
+                        aspect-ratio: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: .75em;
+
+        section.row article {
+            padding: 2em 1.25em;
+
+            figure {
+                opacity: .2;
             }
         }
     }

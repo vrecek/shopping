@@ -31,13 +31,13 @@ const Register = () => {
                     <InputDiv label='Password' type='password' />
                     <InputDiv label='Confirm password' type='password' />
 
-                    <div className={ styles['recaptcha-container'] }>
+                    {/* <div className={ styles['recaptcha-container'] }>
                         <ReCaptcha
                             sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA!}
                             style={{display: 'inline-block', float: 'left'}}
                             ref={captchaRef}
                         />
-                    </div>
+                    </div> */}
 
                     <Button>Create account</Button>
                     <AccountReminder type='gotAccount' />

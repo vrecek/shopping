@@ -27,8 +27,6 @@ section.home-category {
             @include Layer;
 
             p {
-                text-shadow: 0 0 4px $clr-blackd;
-
                 &.header {
                     font-weight: 700;
                     font-size: 2rem;
@@ -36,12 +34,15 @@ section.home-category {
                     border-left: 5px solid $clr-bluel;
                     padding: .25em .35em;
                     letter-spacing: 1px;
+                    text-shadow: 0 0 4px $clr-blackd;
+
                 }
 
                 &.desc {
                     color: $clr-whited;
                     font-weight: 500;
                     margin: 1em 0 2em 0;
+                    text-shadow: 0 0 2px $clr-blackd;
                 }
             }
 
@@ -78,5 +79,26 @@ section.home-category {
                 width: 80%;
             }
         }
+    }
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+
+        article {
+            height: auto;
+            
+            &.item-small,
+            &.item-big {
+                width: 100%;
+            }
+
+            &.item-big {
+                margin-bottom: .5em;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 2em .75em;
     }
 }

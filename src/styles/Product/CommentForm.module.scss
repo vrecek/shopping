@@ -1,0 +1,91 @@
+@import '../config';
+
+section.not-logged-comments {
+    p {
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.5rem;
+        color: $clr-greenl;
+        font-family: 'Epilogue', sans-serif;
+        padding: .5em 0 4em 0;
+    }
+}
+
+form.product-page-comment-form {
+    margin-bottom: 3em;
+
+    div.textarea-wrap {
+        width: 100%;
+        position: relative;
+
+        textarea {
+            width: 100%;
+            resize: none;
+            display: block;
+            border-radius: .15em;
+            height: 200px;
+            outline: 0;
+            border: 0;
+            background: rgb(250, 250, 250);
+            border: 1px solid $clr-greyl;
+            padding: .75em;
+            padding-bottom: 40px;
+            @include Clamp(.85, 3.5, .9);
+        }
+
+        section {
+            position: absolute;
+            @include Flex(fe);
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgb(250, 250, 250);
+            border: 1px solid $clr-greyl;
+            padding: .2em;
+            border-top: 0;
+
+            span {
+                margin-left: .1em;
+                cursor: pointer;
+                @include Rectangle(clamp(28px, 6vw, 30px));
+
+                &.active-star-form {
+                    color: $clr-greenl;
+                }
+            }
+        }
+    }
+
+    p {
+        font-size: .95rem;
+        margin-bottom: .5em;
+        color: $clr-greend;
+        font-weight: 500;
+    }
+
+    button {
+        border-radius: .25em;
+        outline: 0;
+        border: 0;
+        background: $clr-greend;
+        margin-top: .75em;
+        cursor: pointer;
+        transition: .5s;
+
+        label {
+            display: block;
+            pointer-events: none;
+            padding: .75em 2em;
+            @include Clamp(.9, 4, 1);
+            color: $clr-whitel;
+        }
+
+        &:hover {
+            background: darken($clr-greend, 5%);
+        }
+    }
+
+    @media (max-width: 480px) {
+        p { display: none; }
+    }
+}

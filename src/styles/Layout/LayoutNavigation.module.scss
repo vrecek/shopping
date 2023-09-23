@@ -48,8 +48,8 @@ nav.layout-navigation {
                     flex-grow: 1;
                     padding: 0 .75em;
                     outline: 0;
-                    font-size: .95rem;
                     border: 2px solid $clr-greenl;
+                    @include Clamp(.8, 4, .95);
                     font-family: 'Epilogue', sans-serif;
                     border-right: 0;
                     border-radius: .15em 0 0 .15em;
@@ -57,7 +57,7 @@ nav.layout-navigation {
                 }
 
                 span {
-                    @include Rectangle(55px);
+                    @include Rectangle(clamp(35px, 7vw, 55px));
                     background: $clr-greenl;
                     @include Flex(c, c);
 
@@ -95,6 +95,32 @@ nav.layout-navigation {
                         text-transform: uppercase;
                     }
 
+                    span,
+                    figure {
+                        @include Rectangle(clamp(28px, 7vw, 35px))
+                    }
+
+                    span {
+                        color: $clr-blackd;
+                        transition: .5s;
+                    }
+
+                    figure {
+                        cursor: pointer;
+
+                        img {
+                            @include FullSize;
+                            object-fit: cover;
+                        }
+                    }
+
+                    &.logout {
+                        margin-left: 2em;
+                        cursor: pointer;
+                        
+                        span { color: $clr-red; }
+                    }
+
                     a {
                         display: flex;
                         justify-content: flex-start;
@@ -105,14 +131,8 @@ nav.layout-navigation {
                             height: max-content;
                             color: $clr-greend;
                             font-weight: 700;
-                            font-size: 1.1rem;
                             padding: 0 .25em;
-                        }
-
-                        span {
-                            color: $clr-blackd;
-                            transition: .5s;
-                            @include Rectangle(35px);
+                            @include Clamp(.9, 5, 1.1);
                         }
                     }
 
@@ -120,10 +140,6 @@ nav.layout-navigation {
                         &::before {
                             right: 110%;
                             opacity: 1;
-                        }
-
-                        a span {
-                            scale: .9;
                         }
                     }
                 }
@@ -144,7 +160,7 @@ nav.layout-navigation {
                     top: calc(100% + 10px);
                     z-index: 2;
                     width: 29%;
-                    background: $clr-whitel;
+                    background: rgba(245, 245, 245, .975);
                     transition: .5s;
                     padding: .5em;
 
@@ -159,11 +175,13 @@ nav.layout-navigation {
                                 border-left: 0px solid $clr-greend;
                                 text-decoration: none;
                                 letter-spacing: 1px;
+                                @include Clamp(.9, 4, 1);
                                 transition: .3s;
 
                                 span {
-                                    @include Rectangle(35px);
-                                    margin-right: 4em;
+                                    @include Rectangle(clamp(25px, 8vw, 35px));
+                                    min-width: 25px;
+                                    margin-right: clamp(1em, 7vw, 4em);
                                     color: $clr-greenl;
                                 }
 
@@ -202,6 +220,7 @@ nav.layout-navigation {
                         color: $clr-blackd;
                         text-decoration: none;
                         transition: .5s;
+                        @include Clamp(.85, 4, 1);
 
                         &:hover {
                             color: $clr-greenl;
@@ -211,5 +230,82 @@ nav.layout-navigation {
             }
         }
 
+        @media (max-width: 1000px) {
+            &.navigation-center a.logo { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            &.navigation-center {
+                padding: 1em .5em;
+
+                ul.links {
+                    li {
+                        margin-left: .5em;
+
+                        &.logout {
+                            margin-left: 1em;
+                        }
+                    }
+                }
+
+                section.searchbar {
+                    position: relative;
+                    height: clamp(35px, 7vw, 55px);
+
+                    input {
+                        width: 100%;
+                    }
+
+                    span {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+            }
+
+            &.navigation-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+
+                ul.nav-links {
+                    width: 100%;
+
+                    li {
+                        flex-grow: 1;
+
+                        a {
+                            padding: 1em .25em;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                section.navigation-menu { 
+                    aside.menu {
+                        display: none;
+                        height: 0;
+                        overflow: hidden;
+                        left: 0;
+                        width: 100%;
+                    }
+
+                    p.toggler {
+                        font-size: 0;
+
+                        span { 
+                            margin-left: 0;
+                            @include Rectangle(40px);
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            &.navigation-strap {
+                display: none;
+            }
+        }
     }
 }

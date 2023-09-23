@@ -1,19 +1,25 @@
 @import '../config';
 
 main.contact-page {
-    section.sections-wrap {        
+    min-height: calc(100vh - 80px);
+    position: relative;
+    padding: 1em 0;
+    @include Flex(c, c, c);
+
+    section.sections-wrap {
         @include Flex(c);
-        padding: 0 1em;
+        width: 70%;
+        min-width: 768px;
 
         article,
         form {
-            translate: 0 -50%;
             background: $clr-whitel;
             padding: 1em;
+            @include Layer;
         }
 
         article {
-            width: 30%;
+            width: 45%;
             border-right: 0;
             background-size: cover;
             background-image: url('../../images/contact-article.jpg');
@@ -93,15 +99,15 @@ main.contact-page {
         }
 
         form {
-            width: 40%;
+            width: 55%;
             background: rgb(250, 250, 250);
 
             h3 {
                 text-align: center;
                 font-size: 1.4rem;
                 font-weight: 600;
-                letter-spacing: 1px;
-                margin-bottom: 1.25em;
+                margin-bottom: 1.5em;
+                color: $clr-greydr;
             }
 
             div {
@@ -153,38 +159,43 @@ main.contact-page {
         }
     }
 
-    header {
-        @include Flex(c, fs);
-        height: 55vh;
-        position: relative;
-
-        figure {
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: .25;
+    figure {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: .25;
+        @include FullSize;
+        
+        img {
             @include FullSize;
-            
-            img {
-                @include FullSize;
-                object-fit: cover;
+            object-fit: cover;
+        }
+    }
+
+    h1 {
+        font-weight: 700;
+        text-shadow: 0 0 2px $clr-blackl;
+        letter-spacing: 4px;
+        @include Clamp(2.25, 8, 3);
+        word-spacing: 8px;
+        color: $clr-whitel;
+        width: max-content;
+        @include Layer;
+        margin: 0 auto .5em auto;
+    }
+
+    @media (max-width: 768px) {
+        padding: 1em .25em;
+
+        section.sections-wrap {
+            flex-direction: column;
+            @include ResetWidth;
+            width: 100%;
+
+            article,
+            form {
+                width: 100%;
             }
-        }
-
-        h1,
-        p {
-            color: $clr-whitel;
-            @include Layer;
-        }
-
-        h1 {
-            font-weight: 700;
-            text-shadow: 0 0 2px $clr-blackl;
-            border-bottom: 5px solid $clr-whitel;
-            font-size: 3rem;
-            margin-top: 1em;
-            letter-spacing: 4px;
-            word-spacing: 8px;
         }
     }
 }

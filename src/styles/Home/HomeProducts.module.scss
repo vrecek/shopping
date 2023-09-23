@@ -6,19 +6,21 @@ section.home-products {
 
     section.section-description {
         @include Flex(sb, c);
-        margin-bottom: 2em;
+        margin-bottom: 1em;
 
         p {
-            font-size: 1.25rem;
-            font-weight: 500;
             text-transform: uppercase;
-            color: $clr-blackl;
+            @include Clamp(1.1, 5, 1.25);
+            font-family: 'Epilogue', sans-serif;
+            border-left: 4px solid $clr-greend;
+            padding-left: .3em;
         }
 
         a {
             text-decoration: none;
             color: $clr-greend;
             @include Flex(none, c);
+            @include Clamp(.85, 4, 1);
             font-weight: 500;
             
             &, & > * {transition: .5s;}
@@ -33,5 +35,9 @@ section.home-products {
                 color: $clr-greenl;
             }
         }
+    }
+
+    @media (max-width: 480px) {
+        padding: 4em .75em;
     }
 }

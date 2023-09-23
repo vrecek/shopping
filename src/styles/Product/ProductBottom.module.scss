@@ -1,6 +1,9 @@
 @import '../config';
 
-section {
+section.description-section,
+section.comments-section {
+    margin-bottom: 10em;
+    
     &.comments-section {
         @include Flex(sb, fs);
 
@@ -16,22 +19,24 @@ section {
                 &:not(:last-child) { margin-bottom: .75em; }
 
                 p {
-                    font-size: 1.15rem;
                     color: $clr-greend;
+                    @include Clamp(.9, 4, 1.15);
                     font-weight: 500;
                 }
 
                 p.total-votes {
-                    margin-left: .75em;
+                    width: 15%;
+                    text-align: right;
                 }
 
                 div {
                     &.rating-first {
                         margin-right: .75em;
+                        width: 15%;
                         @include Flex(none, c);
 
                         span {
-                            @include Rectangle(35px);
+                            @include Rectangle(clamp(28px, 6vw, 35px));
                             margin-right: .2em;
                             color: $clr-greend;
                         }
@@ -40,10 +45,9 @@ section {
                     &.rating-bar {
                         height: 30px;
                         background: rgb(235, 235, 235);
-                        flex-grow: 1;
+                        width: 70%;
 
                         div {
-                            width: 40%;
                             height: 100%;
                             background: $clr-greend;
                         }
@@ -106,6 +110,7 @@ section {
     
                         section.comment-details {
                             @include Flex(sb, c);
+                            margin-top: 1em;
     
                             p {
                                 font-size: .85rem;
@@ -135,17 +140,17 @@ section {
     }
 
     &.description-section {
-        @include Flex(sb, none  );
+        @include Flex(sb, none );
 
         section.description-object {
             @include Flex(fs, c);
-            width: 45%;
+            width: 48%;
 
             &:not(:last-child) {
                 margin-bottom: 2em;
             }
 
-            p { font-size: .9rem; }
+            p { @include Clamp(.8, 3, .9) }
 
             p.header {
                 text-transform: uppercase;
@@ -168,12 +173,43 @@ section {
                         }
 
                         &.value {
-                            
+                            margin-left: 1em;
                         }
                     }
                 }
             }
         }
+    }
+
+    @media (max-width: 768px) {
+        &.comments-section {
+            flex-direction: column;
+
+            section.comments-wrap {
+                width: 100%;
+            }
+
+            ul.rating-summary {
+                width: 100%;
+                position: static;
+
+                li {
+                    p.total-votes { margin: 0; }
+                }
+            }
+        }
+
+        &.description-section {
+            section.description-object {
+                width: 100%;
+
+                p.header { display: none; }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        margin-bottom: 5em;
     }
 }
 
@@ -186,9 +222,10 @@ ul.display-select {
     border-radius: .25em;
 
     li {
-        padding: 1.5em 2em;
+        padding: 1.5em 30px;
         text-align: center;
         cursor: pointer;
+        @include Clamp(.8, 3.5, 1);
         position: relative;
         font-weight: 500;
         font-family: 'Epilogue', sans-serif;
@@ -204,5 +241,9 @@ ul.display-select {
             transition: .5s;
             pointer-events: none;
         }
+    }
+
+    @media (max-width: 480px) {
+        li { flex-grow: 1; }
     }
 }

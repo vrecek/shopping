@@ -2,15 +2,15 @@
 
 main.product-page {
     min-height: 100vh;
-    padding: 2em;
+    padding: 1.5em;
 
     section.similar-products {
         margin: 4em 0;
-        padding: 0 1em;
+        padding: 0 0em;
 
         p.products-header {
-            font-size: 1.2rem;
             letter-spacing: 1px;
+            @include Clamp(1, 5, 1.2);
             margin-bottom: 1em;
             color: $clr-greenl;
             border-left: 4px solid $clr-greend;
@@ -23,7 +23,7 @@ main.product-page {
         @include Flex(sb, fs);
 
         section.product-right {
-            width: 45%;
+            width: 48%;
 
             h1 {
                 font-size: 2rem;
@@ -91,6 +91,7 @@ main.product-page {
                         padding: .8em 1.25em;
                         border-radius: .2em;
                         cursor: pointer;
+                        transition: .5s;
                         
                         p {
                             opacity: .8;    
@@ -128,7 +129,7 @@ main.product-page {
                     margin: 2em 0;
     
                     span {
-                        @include Rectangle(40px);
+                        @include Rectangle(clamp(30px, 8vw, 40px));
     
                         &.rating-active {
                             color: $clr-greenl;
@@ -157,7 +158,25 @@ main.product-page {
                 border-radius: .25em;
                 margin-top: 2em;
                 @include Flex(c, c);
+                overflow: hidden;
                 color: $clr-whitel;
+                position: relative;
+
+                &::before,
+                &::after {
+                    content: '✔';
+                    position: absolute;
+                    left: 50%;
+                    top: 200%;
+                    transition: .5s;
+                    translate: -50% -50%;
+                }
+
+                &,
+                label,
+                span {
+                    transition: .5s
+                }
 
                 span {
                     @include Rectangle(25px);
@@ -174,11 +193,39 @@ main.product-page {
                 &:hover {
                     background: $clr-greend;
                 }
+
+                &.added-to-cart,
+                &.not-available {
+                    pointer-events: none;
+                    position: relative;
+
+                    label,
+                    span {
+                        translate: 0 200%;
+                    }
+                }
+
+                &.added-to-cart {
+                    background: $clr-greend;
+
+                    &::before {
+                        top: 50%;
+                    }
+                }
+
+                &.not-available {
+                    background: $clr-red;
+
+                    &::after {
+                        content: '✖';
+                        top: 50%;
+                    }
+                }
             }
         }
 
         section.product-image {
-            width: 45%;
+            width: 42%;
             aspect-ratio: 1;
             @include Flex(sb, c);
             position: sticky;
@@ -189,9 +236,10 @@ main.product-page {
 
                 &.main-image {
                     width: 80%;
+                    overflow: hidden;
                 }
 
-                img { width: 100%; }
+                img { width: 100%; transition: .5s; }
             }
 
             section {
@@ -203,14 +251,52 @@ main.product-page {
                     cursor: pointer;
                     transition: .5s;
                     border-radius: .25em;
+                    margin-bottom: 1em;
 
                     &.image-active {
                         pointer-events: none;
                         background: rgba(4, 170, 109, .5);
-                        padding: .5em;
+
+                        img { scale: .8; }
                     }
                 }
             }
         }
+    }
+
+    @media (max-width: 768px) {
+        section.main-wrap {
+            flex-direction: column;
+
+            section.product-image {
+                position: static;
+                width: 90%;
+                min-width: 310px;
+                margin: 0 auto;
+                aspect-ratio: auto;
+                flex-direction: column-reverse;
+
+                section {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+
+                    figure {
+                        margin: 0;
+                        flex-grow: 1;
+                        max-width: 80px;
+                    }
+                }
+            }
+
+            section.product-right {
+                width: 100%;
+                margin-top: 2em;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: .75em;
     }
 }

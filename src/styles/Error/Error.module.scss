@@ -1,0 +1,76 @@
+@import '../config';
+
+main.error-page {
+    height: 100vh;
+    @include Flex(sa, c);
+    padding: 1em;
+
+    section {
+        width: 40%;
+
+        h1 {
+            font-family: 'Epilogue', sans-serif;
+            @include Clamp(2.5, 10, 2.75);
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+
+        div {
+            border-left: 5px solid $clr-greenl;
+            padding-left: .5em;
+
+            h2 {
+                font-weight: 700;
+                font-size: 1.25rem;
+                color: $clr-greydr;
+            }
+    
+            h3 {
+                margin-bottom: 2em;
+                margin-top: .2em;
+                font-family: 'Epilogue', sans-serif;
+                font-weight: 500;
+                color: $clr-greydr;
+                @include Clamp(1.25, 7, 1.75);
+            }
+        }
+
+        p {
+            &,
+            a {
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+            a {
+                color: $clr-greenl;
+                text-decoration: none;
+                margin-right: .25em;
+            }
+        }
+    }
+
+    figure {
+        width: 50%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        figure { 
+            position: absolute;
+            left: 50%; 
+            top: 50%;
+            translate: -50% -50%;
+            opacity: .1;
+            width: 80%;
+        }
+
+        section {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

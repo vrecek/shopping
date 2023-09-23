@@ -1,9 +1,99 @@
 @import '../config';
 
+main.order-page,
+main.user-basket {
+    article {
+        @include Flex(sb, c);
+        &:not(:last-child) { margin-bottom: 2em; }
+
+        div {
+            width: 25%;
+            cursor: pointer;
+
+            p {
+                &.name {
+                    color: rgb(70, 70, 70);
+                    @include Clamp(.9, 4, 1.1);
+                }
+
+                &.company {
+                    font-size: .85rem;
+                    font-weight: 600;
+                }
+
+                &.size {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        section {
+            width: 7%;
+            min-width: 50px;
+            @include Flex(c, c);
+            aspect-ratio: 1;
+            border: 1px solid $clr-blackl;
+            border-radius: .25em;
+            position: relative;
+
+            span {
+                position: absolute;
+                top: 50%;
+                @include Rectangle(25px);
+                cursor: pointer;
+                background: $clr-whitel;
+                transition: .5s;
+
+                &:first-of-type {
+                    left: 0;
+                    translate: -50% -50%;
+                }
+
+                &:last-of-type {
+                    right: 0;
+                    translate: 50% -50%;
+                }
+
+                &:hover {
+                    scale: 1.1;
+                }
+            }
+
+            p {
+                font-weight: 500;
+            }
+        }
+
+        figure {
+            width: 12%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            figure { display: none; }
+
+            div {
+                width: 40%;
+            }
+        }
+    }
+}
+
 main.user-basket {
     padding: 3em 2em;
     min-height: 100vh;
     @include Flex(sb, fs);
+
+    h3 {
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+        color: rgb(80, 80, 80)
+    }
 
     h2,
     h1 {
@@ -19,63 +109,6 @@ main.user-basket {
 
     section.basket-products {
         width: 60%;
-
-        article {
-            @include Flex(sb, c);
-            margin-bottom: 3em;
-
-            p {
-                &.name {
-                    width: 25%;
-                    font-size: 1.1rem;
-                    color: rgb(70, 70, 70);
-                }
-            }
-
-            section {
-                width: 7%;
-                @include Flex(c, c);
-                aspect-ratio: 1;
-                border: 1px solid $clr-blackl;
-                border-radius: .25em;
-                position: relative;
-
-                span {
-                    position: absolute;
-                    top: 50%;
-                    @include Rectangle(25px);
-                    cursor: pointer;
-                    background: $clr-whitel;
-                    transition: .5s;
-
-                    &:first-of-type {
-                        left: 0;
-                        translate: -50% -50%;
-                    }
-
-                    &:last-of-type {
-                        right: 0;
-                        translate: 50% -50%;
-                    }
-
-                    &:hover {
-                        scale: 1.1;
-                    }
-                }
-
-                p {
-                    font-weight: 500;
-                }
-            }
-
-            figure {
-                width: 12%;
-
-                img {
-                    width: 100%;
-                }
-            }
-        }
     }
 
     aside.basket-summary {
@@ -88,6 +121,8 @@ main.user-basket {
             padding: 1em 0;
 
             p {
+                @include Clamp(.9, 3.5, 1);
+
                 &:first-child {
                     font-weight: 600;
                     color: rgba(80, 80, 80)
@@ -128,5 +163,22 @@ main.user-basket {
                 background: darken($clr-greend, 5%);
             }
         }
+    }
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+
+        section.basket-products {
+            width: 100%;
+        }
+
+        aside.basket-summary {
+            width: 100%;
+            margin-top: 5em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 3em 1em;
     }
 }

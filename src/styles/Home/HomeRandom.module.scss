@@ -16,11 +16,13 @@ section.home-random {
 
             &.right-product {
                 figure {
-                    width: 50%;
+                    width: 40%;
                     margin: 0 auto;
+                    aspect-ratio: 1;
+                    @include Flex(c, c);
 
                     img {
-                        width: 100%;
+                        height: 100%;
                     }
                 }
 
@@ -84,8 +86,8 @@ section.home-random {
 
                     &.desc {
                         font-family: 'Epilogue', sans-serif;
-                        font-size: .95rem;
                         color: $clr-blackl;
+                        @include Clamp(.85, 3.5, .95);
                         margin: .75em 0;
                     }
                 }
@@ -175,6 +177,38 @@ section.home-random {
         img {
             @include FullSize;
             object-fit: cover;
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: auto;
+
+        section.container-wrap {
+            translate: 0 0;
+            flex-direction: column;
+
+            article {
+                width: 100%;
+                
+            }
+        }
+
+        figure.bg-image {
+            height: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        section.container-wrap {
+            article {
+                padding: 1em;
+
+                &.right-product {
+                    figure {
+                        width: 70%;
+                    }
+                }
+            }
         }
     }
 }

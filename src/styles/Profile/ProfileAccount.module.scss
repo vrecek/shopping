@@ -1,0 +1,32 @@
+@import '../config';
+
+section.profile-account {
+    button {
+        background: $clr-red;
+        border-radius: .25em;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        margin-top: 1em;
+        transition: .5s;
+
+        label {
+            pointer-events: none;
+            display: block;
+            color: $clr-whitel;
+            font-size: .95rem;
+            font-weight: 500;
+            padding: .75em 1em;
+        }
+
+        &:hover {
+            background: darken($clr-red, 5%);
+        }
+    }
+
+    p.delete-warn {
+        font-size: .9rem;
+        font-weight: 500;
+        color: $clr-red;
+    }
+}

@@ -1,0 +1,158 @@
+@import '../config';
+
+section.purchase-history {
+    p.history-empty {
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-top: 5em;
+        color: $clr-greydr;
+        font-family: 'Epilogue', sans-serif;
+    }
+
+    article {
+        padding: 1em;
+        background: $clr-whitelr;
+        margin-bottom: 3em;
+
+        section.container-section {
+            &:first-of-type { margin-bottom: 1em; }
+
+            section.inner-section {
+                height: 0;
+                overflow: hidden;
+                display: none;
+                transition: .3s;
+    
+                &.order-details {
+                    div {
+                        @include Flex(sb, c);  
+
+                        &:first-child { padding-top: 1em; }                    
+                        &:last-child { padding-bottom: 1em; }                    
+
+                        p {
+                            width: 50%;
+                            font-size: .9rem;
+                            padding: .5em;
+
+                            &:first-child {
+                                font-weight: 700;
+                                letter-spacing: -1px;
+                                text-transform: uppercase;
+                            }
+
+                            &:last-child {
+                                color: $clr-greydr;
+                                font-family: 'Epilogue', sans-serif;
+
+                                &.delivery-status-true { color: green; }
+                                &.delivery-status-false { color: $clr-red; }
+                            }
+                        }
+                    }
+                }
+    
+                &.order-products {
+                    section {
+                        background: $clr-whitel;
+                        padding: .75em;
+                        @include Flex(sb);
+                        cursor: pointer;
+
+                        &:first-child { margin-top: 2em; }
+                        &:not(:last-child) { margin-bottom: 1em }
+
+                        figure {
+                            width: 12%;
+                            min-width: 60px;
+                            height: max-content;
+                            overflow: hidden;
+                            aspect-ratio: 1;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+                        div {
+                            width: 35%;
+                        }
+
+                        p {
+                            &.price,
+                            &.quantity {
+                                width: 10%;
+                                @include Flex(c, c);
+                            }
+
+                            &.name,
+                            &.size,
+                            &.quantity {
+                                @include Clamp(.8, 4, 1);
+                            }
+
+                            &.company {
+                                margin-bottom: .5em;
+                                font-weight: 700;
+                                font-size: .9rem;
+                            }
+
+                            &.name {
+                                color: $clr-greydr;
+                                font-family: 'Epilogue', sans-serif;
+                            }
+
+                            &.size {
+                                margin-top: 1.5em;
+                                font-weight: 700;
+                            }
+
+                            &.price {
+                                font-weight: 500;
+                                @include Clamp(1, 5, 1.25);
+                                color: $clr-greydr;
+                                margin-right: .5em;
+                            }
+
+                            &.quantity {
+                                font-family: 'Epilogue', sans-serif;
+                                font-weight: 600;
+                            }
+
+                            @media (max-width: 480px) { 
+                                &.quantity { display: none; }
+
+                                &.price,
+                                &.quantity { width: auto; }
+                            }
+                        }
+                    }
+                }
+            }
+    
+            div.expand-div {
+                @include Flex(sb, c);
+                cursor: pointer;
+
+                span {
+                    @include Rectangle(25px);
+                    transition: .3s;
+                }
+
+                p {
+                    font-size: .9rem;
+                    font-family: 'Epilogue', sans-serif;
+                }
+            }
+        }
+
+        p.order-header {
+            text-transform: uppercase;
+            font-size: .9rem;
+            font-weight: 700;
+            word-spacing: 6px;
+            margin-bottom: 1.5em;
+        }
+    }
+}
